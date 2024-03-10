@@ -27,8 +27,8 @@ export default function Login() {
                 // Invalid email or password
                 alert('Already Registered.');
             } else {
-                console.error('Error logging in:', error);
-                alert('An error occurred while logging in. Please try again later.');
+                console.error('Error Signing up:', error);
+                alert('An error occurred while Signing up. Please try again later.');
             }
         } finally {
             setIsLoading(false);

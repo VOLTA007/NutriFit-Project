@@ -5,14 +5,22 @@
     color: white;
 }
 
-.logomenu{
+.logomenu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: center
+    ;
     margin-left: 10px; 
     margin-right: 10px;
     position: relative;
+    height: 80px;
 }
+
+.Logo {
+    width: 80px;
+    border-radius: 10px;
+}
+
 
 .hamburger{
     background-color: hsl(63,96%,53%);
@@ -26,7 +34,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    z-index: 3;
+    z-index: 4;
 }
 
 .line {

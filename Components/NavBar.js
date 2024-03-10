@@ -3,36 +3,41 @@ import styles from '../styles/NavBar.module.css';
 
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
-    const [isXShape, setIsXShape] = useState(false); 
+    const [manualClose, setManualClose] = useState(false);
     const sideMenuRef = useRef(null);
+
+    const isXShape = showOverlay;
+
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (showOverlay && sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
+                if (!manualClose) {
+                    setShowOverlay(false);
+                }
+                setManualClose(false);
+            }
+        }
+
+        document.addEventListener("click", handleClickOutside);
+        document.addEventListener("touchstart", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
+        };
+    }, [showOverlay, manualClose]);
+
 
     const toggleOverlay = () => {
         setShowOverlay(!showOverlay);
-        setIsXShape(!isXShape); 
+        setManualClose(!showOverlay); 
     };
-
-    const handleOutsideClick = (event) => {
-        if (sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
-            setShowOverlay(false);
-            setIsXShape(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('mousedown', handleOutsideClick);
-        document.addEventListener('touchstart', handleOutsideClick);
-
-        return () => {
-            document.removeEventListener('mousedown', handleOutsideClick);
-            document.removeEventListener('touchstart', handleOutsideClick);
-        };
-    }, []);
 
     return (
         <>
             <div className={styles.navcontainer}>
                 <div className={styles.logomenu}>
-                    <h1>Logo</h1>
+                    <img className={styles.Logo} src='./Nutrifitlogo.jpg' alt='Logo'></img>
                     <nav 
                         className={`${styles.hamburger} ${isXShape ? styles.xShape : ''}`} 
                         onClick={toggleOverlay}
@@ -45,6 +50,7 @@ export default function NavBar() {
                         className={`${styles.sidemenu} ${showOverlay ? styles.active : ''}`}
                         ref={sideMenuRef}
                     >
+                        {/* Side menu content */}
                     </div>
                 </div>
             </div>

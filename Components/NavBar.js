@@ -20,10 +20,8 @@ export default function NavBar() {
         }
 
         document.addEventListener("click", handleClickOutside);
-        document.addEventListener("touchstart", handleClickOutside);
         return () => {
             document.removeEventListener("click", handleClickOutside);
-            document.removeEventListener("touchstart", handleClickOutside);
         };
     }, [showOverlay, manualClose]);
 

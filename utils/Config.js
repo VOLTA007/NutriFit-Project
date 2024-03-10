@@ -1,9 +1,17 @@
-var domain;
+let domain;
 
-if (process.env.NODE_ENV === 'production') {
-    domain= 'https://nutrifit-g12t5pij5-voltas-projects.vercel.app/api'
-} else {
-    domain= 'http://localhost:3000/api'
+async function fetchDomain() {
+    if (process.env.NODE_ENV === 'production') {
+        // Use the domain from environment variable in production and append /api
+        domain = `${process.env.VERCEL_URL}/api`;
+    } else {
+        // Use localhost domain for development
+        domain = 'http://localhost:3000/api';
+    }
 }
+
+// Call the function to fetch the domain
+fetchDomain();
+
 
 export default domain;

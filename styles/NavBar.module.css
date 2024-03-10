@@ -1,0 +1,75 @@
+.navcontainer{
+    background-color: hsl(0,0%,8%);
+    width: 100%;
+    height: 80px;
+    color: white;
+}
+
+.logomenu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-left: 10px; 
+    margin-right: 10px;
+    position: relative;
+}
+
+.hamburger{
+    background-color: hsl(63,96%,53%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-self: end;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 3;
+}
+
+.line {
+    width: 50%;
+    height: 3px;
+    background-color: hsl(0,0%,8%);
+    border-radius: 120px;
+}
+
+.sidemenu.active {
+    width: 200px;
+    transition: all 1s ease;
+}
+
+.sidemenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 100vh; 
+    background-color: hsl(0, 0%, 14%);
+    margin-right: -10px;
+    display: block;
+    transition: all 1s ease;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 30px;
+    z-index: 2;
+}
+
+.overlay {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 32px);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+.overlay.active {
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: visible;
+}

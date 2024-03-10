@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 import styles from '../styles/NavBar.module.css';
-import Link from 'next/link';
 
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
@@ -50,14 +49,14 @@ export default function NavBar() {
                         ref={sideMenuRef}
                     >
                         <ul className={styles.ul}>
-                            <li className={styles.li}>
-                                <Link href="/">Home</Link>
+                        <li className={styles.li}>
+                                <a href="/">Home</a>
                             </li>
                             <li className={styles.li}>
-                                <Link href="/Login">Login</Link>
+                                <a href="/Login">Login</a>
                             </li>
                             <li className={styles.li}>
-                                <Link href="/Signup">Signup</Link>
+                                <a href="/Signup">Signup</a>
                             </li>
                         </ul>
                     </div>

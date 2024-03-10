@@ -7,8 +7,11 @@ import domain from '@/utils/Config';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     async function handleClick() {
+
+        setIsLoading(true);
         try {
             const response = await axios.post(`${domain}/UserSignup`, { email, password });
             const { success } = response.data;
@@ -27,6 +30,8 @@ export default function Login() {
                 console.error('Error logging in:', error);
                 alert('An error occurred while logging in. Please try again later.');
             }
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -46,7 +51,9 @@ export default function Login() {
                     }}
                 type="password" value={password} className={styles.input} placeholder="Password"/>
             </div>
-            <button onClick={handleClick} className={styles.but}>Signup</button>
+            <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} onClick={handleClick} disabled={isLoading}>
+             {isLoading ? (<div className="loader"></div>) : ('Signup')}
+            </button>
         </>
     )
 }

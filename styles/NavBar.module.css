@@ -34,6 +34,21 @@
     height: 3px;
     background-color: hsl(0,0%,8%);
     border-radius: 120px;
+    transition: all 1s ease; 
+}
+
+.xShape .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    transition: all 1s ease; 
+}
+  
+.xShape .line:nth-child(2) {
+    opacity: 0;
+}
+  
+.xShape .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    transition: all 1s ease; 
 }
 
 .sidemenu.active {

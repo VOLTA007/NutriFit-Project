@@ -3,10 +3,11 @@ import styles from '../styles/NavBar.module.css';
 
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
+    const [isXShape, setIsXShape] = useState(false); // New state to manage X shape
 
-    // Function to toggle the overlay
     const toggleOverlay = () => {
         setShowOverlay(!showOverlay);
+        setIsXShape(!isXShape); // Toggle X shape state
     };
 
     return (
@@ -15,15 +16,17 @@ export default function NavBar() {
                 <div className={styles.logomenu}>
                     <h1>Logo</h1>
                     <nav 
-                        className={styles.hamburger}
+                        className={`${styles.hamburger} ${isXShape ? styles.xShape : ''}`} 
                         onClick={toggleOverlay}
                     >
                         <span className={styles.line}></span>
                         <span className={styles.line}></span>
                         <span className={styles.line}></span>
                     </nav>
-                    <div className={`${styles.sidemenu} ${showOverlay ? styles.active : ''}`}>
-                        
+                    <div 
+                        className={`${styles.sidemenu} ${showOverlay ? styles.active : ''}`}
+                    >
+                        {/* Side menu content */}
                     </div>
                 </div>
             </div>
@@ -31,6 +34,5 @@ export default function NavBar() {
                 className={`${styles.overlay} ${showOverlay ? styles.active : ''}`}
             ></div>
         </>
-    )
+    );
 }
-

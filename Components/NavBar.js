@@ -51,7 +51,7 @@ export default function NavBar() {
 
                        <ul className={`${styles.ull} ${showOverlay ? '' : styles.hidden}`}>
                         <li className={styles.li}>
-                            <Link href="/" onClick={toggleOverlay}>
+                            <Link href="/Home" onClick={toggleOverlay}>
                                 Home
                             </Link>
                         </li>

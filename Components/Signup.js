@@ -38,14 +38,14 @@ export default function Login() {
     return (
         <>
             <div className={styles.conatiner}>
-                <label className={styles.label}>Email :</label>
+                <label className={`${styles.label} dark:text-white`}>Email :</label>
                 <input onChange={(e) =>{
                     setEmail(e.target.value)
                     }}
                 type="email" value={email} className={styles.input} placeholder="name@example.com"/>
             </div>
             <div className={styles.conatiner}>
-                <label className={styles.label}>Password :</label>
+                <label className={`${styles.label} dark:text-white`}>Password :</label>
                 <input onChange={(e) =>{
                     setPassword(e.target.value)
                     }}

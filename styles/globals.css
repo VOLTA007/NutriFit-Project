@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    /* Your component styles here */
+    body {
+      @apply dark:bg-gray-800 transition-colors duration-500; /* Replace 'gray-800' with the desired dark color */
+    }
+  }
+
+
 body{
     font-family: "Inter", sans-serif;
     padding: 0;

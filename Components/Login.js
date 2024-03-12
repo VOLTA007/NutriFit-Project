@@ -11,7 +11,8 @@ export default function Login() {
     const [isLoading, setIsLoading] = useState(false);
   
 
-    async function handleClick() {
+    async function handleFormSubmit(e) {
+        e.preventDefault();
 
         setIsLoading(true);
 
@@ -40,23 +41,26 @@ export default function Login() {
 
     return (
         <>
-            <div className={styles.conatiner}>
-                <label className={styles.label}>Email :</label>
-                <input onChange={(e) =>{
-                    setEmail(e.target.value)
-                    }}
-                type="email" value={email} className={styles.input} placeholder="name@example.com"/>
-            </div>
-            <div className={styles.conatiner}>
-                <label className={styles.label}>Password :</label>
-                <input onChange={(e) =>{
-                    setPassword(e.target.value)
-                    }}
+
+            
+            <form onSubmit={handleFormSubmit}>
+                <label className={`${styles.label} dark:text-white`}>Email :</label>
+                <input 
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email" 
+                    value={email} 
+                    className={styles.input} 
+                    placeholder="name@example.com"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    required 
+                />
+                <label className={`${styles.label} dark:text-white`}>Password :</label>
+                <input onChange={(e) =>{setPassword(e.target.value)}}
                 type="password" value={password} className={styles.input} placeholder="Password"/>
-            </div>
-            <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} onClick={handleClick} disabled={isLoading}>
-             {isLoading ? (<div className="loader"></div>) : ('Login')}
-            </button>
+                <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} type="submit" disabled={isLoading}>
+                    {isLoading ? (<div className="loader"></div>) : ('Login')}
+                </button>
+            </form>
         </>
     )
 }

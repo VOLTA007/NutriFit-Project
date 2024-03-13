@@ -55,7 +55,7 @@ export default function Login() {
                     required />
 
                 <input onChange={(e) =>{setPassword(e.target.value)}}
-                    e="password" value={password} className={`${styles.input} rounded-md 
+                    type="password" value={password} className={`${styles.input} rounded-md 
                     dark:bg-[#0d121b] dark:text-gray-50`}>
                 </input>
 

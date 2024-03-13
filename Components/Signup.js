@@ -2,14 +2,18 @@ import { useState } from 'react';
 import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
+import { useRouter } from 'next/router'; 
 
 
-export default function Login() {
+
+
+export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
-    async function handleFormSubmit() {
+    async function handleFormSubmit(e) {
         e.preventDefault();
 
         setIsLoading(true);
@@ -19,14 +23,16 @@ export default function Login() {
 
             if (success) {
                 alert('User Created successfully');
-                // Redirect to the dashboard or another page
+                router.push('/Login');
             } else {
-                alert('Already Registered.');
+                alert('Already Registered, Please Login');
+                router.push('/Login');
             }
         } catch (error) {
             if (error.response && error.response.status === 401) {
                 // Invalid email or password
-                alert('Already Registered.');
+                alert('Already Registered, Please Login');
+                router.push('/Login');
             } else {
                 console.error('Error Signing up:', error);
                 alert('An error occurred while Signing up. Please try again later.');
@@ -52,7 +58,7 @@ export default function Login() {
                     required />
 
                 <input onChange={(e) =>{setPassword(e.target.value)}}
-                    e="password" value={password} className={`${styles.input} rounded-md 
+                    type="password" value={password} className={`${styles.input} rounded-md 
                     dark:bg-[#0d121b] dark:text-gray-50`}>
                 </input>
 

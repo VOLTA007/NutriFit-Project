@@ -8,8 +8,7 @@
 .logomenu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center
-    ;
+    align-items: center;
     margin-left: 10px; 
     margin-right: 10px;
     position: relative;
@@ -105,7 +104,7 @@
     padding: 0;
     text-align: center;
     opacity: 1;
-    transition: opacity 0.7s linear 0.3s;
+    transition: opacity 0.5s linear 0.6s;
 }
 .li{
     cursor: default;

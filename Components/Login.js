@@ -50,13 +50,13 @@ export default function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
                     value={email} 
-                    className={`${styles.input} rounded-md bg-[#0d121b] text-gray-50`} 
+                    className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     required />
 
                 <input onChange={(e) =>{setPassword(e.target.value)}}
                     e="password" value={password} className={`${styles.input} rounded-md 
-                    bg-[#0d121b] text-gray-50`}>
+                    dark:bg-[#0d121b] dark:text-gray-50`}>
                 </input>
 
                 <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} type="submit" disabled={isLoading}>

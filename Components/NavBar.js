@@ -49,21 +49,28 @@ export default function NavBar() {
                         className={`${styles.sidemenu} ${showOverlay ? styles.active : ''}`}
                         ref={sideMenuRef}>
 
-                       <ul className={`${styles.ull} ${showOverlay ? '' : styles.hidden}`}>
+                       <ul className={`${styles.ull} ${showOverlay ? '' : styles.hidden} flex flex-col items-center justify-center`}>
+                            
                         <li className={styles.li}>
-                            <Link href="/Home" onClick={toggleOverlay}>
-                                Home
-                            </Link>
+                        <Link href="/Home" onClick={toggleOverlay} className="flex items-center">
+                            <span><img className="w-6" src='./icons8-home-48.png' 
+                                alt="Home Icon"></img></span>
+                            <span className="ml-1">Home</span>
+                        </Link>
                         </li>
                         <li className={styles.li}>
-                            <Link href="/Login" onClick={toggleOverlay}>
-                                Login
-                            </Link>
+                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">
+                            <span><img className="w-6" src='./icons8-login-91.png' 
+                                alt="Login Icon"></img></span>
+                            <span className="ml-1">Login</span>
+                        </Link>
                         </li>
                         <li className={styles.li}>
-                            <Link href="/Signup" onClick={toggleOverlay}>
-                                Signup
-                            </Link>
+                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">
+                            <span><img className="w-6" src='./icons8-sign-up-32.png' 
+                                alt="Signup Icon"></img></span>
+                            <span className="ml-1">Signup</span>
+                        </Link>
                         </li>
                     </ul>
                     </div>

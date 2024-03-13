@@ -41,25 +41,28 @@ export default function Login() {
 
     return (
         <>
+            <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-80 bg-[#edfb14] rounded-xl
+                 grid grid-rows-4 mt-24 m-8 p-5 gap-6">
 
-            
-            <form onSubmit={handleFormSubmit}>
-                <label className={`${styles.label} dark:text-white`}>Email :</label>
+                <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png'
+                className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
                     value={email} 
-                    className={styles.input} 
-                    placeholder="name@example.com"
+                    className={`${styles.input} rounded-md bg-[#0d121b] text-gray-50`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                    required 
-                />
-                <label className={`${styles.label} dark:text-white`}>Password :</label>
+                    required />
+
                 <input onChange={(e) =>{setPassword(e.target.value)}}
-                type="password" value={password} className={styles.input} placeholder="Password"/>
+                    e="password" value={password} className={`${styles.input} rounded-md 
+                    bg-[#0d121b] text-gray-50`}>
+                </input>
+
                 <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} type="submit" disabled={isLoading}>
                     {isLoading ? (<div className="loader"></div>) : ('Login')}
                 </button>
+
             </form>
         </>
     )

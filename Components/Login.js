@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
@@ -9,34 +9,46 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [notificationVisible, setNotificationVisible] = useState(false);
+    const [message, setMessage] = useState('')
     const router = useRouter();
-
+    
     async function handleFormSubmit(e) {
         e.preventDefault();
-
+    
         setIsLoading(true);
-
+    
         try {
             const response = await axios.post(`${domain}/UserLogin`, { email, password });
             const { success } = response.data;
     
             if (success) {
+                setMessage('Logged in Successfully'); // Set success message
                 setNotificationVisible(true); // Show notification bar
-                // Delay for 5000ms before redirecting to Home
                 setTimeout(() => {
                     setNotificationVisible(false); // Hide notification bar after 5000ms
                     router.push('/Home'); // Redirect to Home after 5000ms
-                }, 4800);
+                }, 5000);
             } else {
-                alert('Invalid email or password. Please try again.');
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
+                setMessage('Invalid email or password. Please try again.'); // Set error message
             }
         } catch (error) {
             if (error.response && error.response.status === 401) {
-                // Invalid email or password
-                alert('Invalid email or password. Please try again.');
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
+                setMessage('Invalid Email or Password. Please try again.'); // Set error message
             } else {
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
                 console.error('Error logging in:', error);
-                alert('An error occurred while logging in. Please try again later.');
+                setMessage('An error occurred while logging in. Please try again later.'); // Set error message
             }
         } finally {
             // Delay for 5000ms before disabling isLoading state
@@ -80,7 +92,7 @@ export default function Login() {
 
             {notificationVisible && (
                 <div className={`${styles.notification} ${notificationVisible  ? styles.show : ''}`}>
-                    Logged in Successfully
+                    {message}
                     <div className={styles.bar}></div>
                 </div>
             )}

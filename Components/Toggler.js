@@ -30,7 +30,7 @@ const Toggler = () => {
   return (
     <div className="flex justify-end">
         <div className="relative w-16 h-8 flex items-center 
-            dark:bg-gray-400 bg-teal-400 cursor-pointer 
+            bg-gray-400 dark:bg-teal-400 cursor-pointer 
             rounded-full p-1 mr-1.5"
             onClick={()=>setdarkMode(!darkMode)}>
 

@@ -51,25 +51,22 @@ export default function NavBar() {
 
                        <ul className={`${styles.ull} ${showOverlay ? '' : styles.hidden} flex flex-col items-center justify-center`}>
                             
-                        <li className={styles.li}>
-                        <Link href="/Home" onClick={toggleOverlay} className="flex items-center">
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <Link href="/Home" onClick={toggleOverlay} className="flex items-center">Home
                             <span><img className="w-6" src='./icons8-home-48.png' 
                                 alt="Home Icon"></img></span>
-                            <span className="ml-1">Home</span>
                         </Link>
                         </li>
-                        <li className={styles.li}>
-                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login
                             <span><img className="w-6" src='./icons8-login-91.png' 
                                 alt="Login Icon"></img></span>
-                            <span className="ml-1">Login</span>
                         </Link>
                         </li>
-                        <li className={styles.li}>
-                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">Signup
                             <span><img className="w-6" src='./icons8-sign-up-32.png' 
                                 alt="Signup Icon"></img></span>
-                            <span className="ml-1">Signup</span>
                         </Link>
                         </li>
                     </ul>

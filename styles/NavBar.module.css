@@ -109,9 +109,15 @@
 .li{
     cursor: default;
     margin-bottom: 40px;
+    visibility: visible;
+}
+
+.li.hidden2{
+    visibility: hidden;
 }
 
 .ull.hidden{
     opacity: 0;
     transition: opacity 0.1s ease;
 }
+

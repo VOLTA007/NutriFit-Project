@@ -2,14 +2,14 @@ import { useState } from 'react';
 import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
-
+import { useRouter } from 'next/router'; 
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const [isLoading, setIsLoading] = useState(false);
-  
+    const [notificationVisible, setNotificationVisible] = useState(false);
+    const router = useRouter();
 
     async function handleFormSubmit(e) {
         e.preventDefault();
@@ -21,7 +21,12 @@ export default function Login() {
             const { success } = response.data;
     
             if (success) {
-                alert('User logged in successfully');
+                setNotificationVisible(true); // Show notification bar
+                // Delay for 5000ms before redirecting to Home
+                setTimeout(() => {
+                    setNotificationVisible(false); // Hide notification bar after 5000ms
+                    router.push('/Home'); // Redirect to Home after 5000ms
+                }, 4800);
             } else {
                 alert('Invalid email or password. Please try again.');
             }
@@ -33,9 +38,11 @@ export default function Login() {
                 console.error('Error logging in:', error);
                 alert('An error occurred while logging in. Please try again later.');
             }
-            
         } finally {
-            setIsLoading(false);
+            // Delay for 5000ms before disabling isLoading state
+            setTimeout(() => {
+                setIsLoading(false); // Disable isLoading after 5000ms
+            }, 5000);
         }
     }
 
@@ -49,21 +56,34 @@ export default function Login() {
                 <input 
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
-                    value={email} 
-                    className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50`} 
+                    value={email}
+                    className={`${styles.input} rounded-md p-2 dark:bg-[#0d121b] dark:text-gray-50 ${isLoading ? styles.disabled : ''}`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                    required />
+                    required
+                    disabled={isLoading} />
 
-                <input onChange={(e) =>{setPassword(e.target.value)}}
-                    type="password" value={password} className={`${styles.input} rounded-md 
-                    dark:bg-[#0d121b] dark:text-gray-50`}>
-                </input>
+                <input 
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password" 
+                    value={password} 
+                    className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50 p-2 ${isLoading ? styles.disabled : ''}`}
+                    disabled={isLoading} />
 
-                <button className={`${styles.but} ${isLoading ? styles.loading : ''}`} type="submit" disabled={isLoading}>
+                <button 
+                    className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
+                    type="submit" 
+                    disabled={isLoading}>
                     {isLoading ? (<div className="loader"></div>) : ('Login')}
                 </button>
 
             </form>
+
+            {notificationVisible && (
+                <div className={`${styles.notification} ${notificationVisible  ? styles.show : ''}`}>
+                    Logged in Successfully
+                    <div className={styles.bar}></div>
+                </div>
+            )}
         </>
     )
 }

@@ -10,3 +10,75 @@
   cursor: pointer;
   outline: none;
 }
+
+.notification {
+  position: fixed;
+  overflow: hidden;
+  visibility: hidden;
+  top: -100px;
+  left: 35%;
+  border-radius: 50px;
+  width: auto;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  transition: top 0.5s ease;
+  animation: noti 5s ease-in forwards;
+}
+
+.show {
+  visibility: visible;
+}
+
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  border-radius: 50px;
+  width: 100%;
+  background-color: hsl(63,96%,53%);
+  animation: fillBar 5s ease forwards;
+}
+
+.disabled {
+  opacity: 0.5; /* Dim the inputs */
+  pointer-events: none; /* Disable pointer events */
+}
+
+.but[disabled] {
+  cursor: not-allowed; /* Change cursor style of disabled button */
+}
+
+
+@keyframes fillBar {
+  0% {
+    width: 100%; 
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes noti {
+  0% {
+    top: 0px; 
+  }
+  20% {
+    top: 140px; 
+  }
+  25% {
+    top: 135px; 
+  }
+  40% {
+    top: 140px; 
+  }
+  80% {
+    top: 140px; 
+  }
+  100% {
+    top: -10px;
+  }
+}

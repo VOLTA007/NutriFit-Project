@@ -3,15 +3,15 @@ import styles from '../styles/Header.module.css';
 import NavBar from './NavBar';
 import NavbarDesktop from './NavbarDesktop';
 
-export default function Header({ isMobile = false }) { // Optional default prop for isMobile
+function Header({ isMobile = false }) { // Optional default prop for isMobile
 
-  // Utilize a reliable library for client-side detection (if needed)
+  // Client-side detection using a reliable regular expression
   const [isMobileClient, setIsMobileClient] = React.useState(false);
 
   React.useEffect(() => {
     const handleResize = () => {
       const userAgent = navigator.userAgent;
-      const mobileRegEx = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+      const mobileRegEx = /(android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini)/i;
       setIsMobileClient(mobileRegEx.test(userAgent));
     };
 
@@ -21,7 +21,8 @@ export default function Header({ isMobile = false }) { // Optional default prop 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const combinedIsMobile = isMobile !== undefined ? isMobile : isMobileClient; // Prioritize SSR provided value
+  // Prioritize server-side provided isMobile for accurate initial rendering
+  const combinedIsMobile = isMobile !== undefined ? isMobile : isMobileClient;
 
   return (
     <div className={styles.header1}>
@@ -29,4 +30,22 @@ export default function Header({ isMobile = false }) { // Optional default prop 
       {combinedIsMobile ? <NavBar /> : <NavbarDesktop />}
     </div>
   );
+}
+
+export default Header;
+
+// Server-side detection using `getStaticProps` or `getServerSideProps` (optional)
+// Example using getStaticProps
+export async function getStaticProps(context) {
+  const req = context.req;
+  const userAgent = req.headers['user-agent'];
+
+  // Refined logic to detect mobile devices (can be improved further)
+  const isMobile = userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i);
+
+  return {
+    props: {
+      isMobile,
+    },
+  };
 }

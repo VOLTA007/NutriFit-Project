@@ -15,9 +15,9 @@
   position: fixed;
   overflow: hidden;
   visibility: hidden;
+  top: -100px;
   left: 50%;
   transform: translate(-50%, -50%);
-  left: 35%;
   border-radius: 50px;
   width: auto;
   background-color: #333;

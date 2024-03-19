@@ -1,41 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from '../styles/NavbarDesktop.module.css';
 import Link from 'next/link';
+import Toggler from './Toggler';
 
 const NavbarDesktop = () => {
   return (
-        <>
-            <div className={styles.navcontainer}>
-                <div className={styles.logomenu}>
-                    <img className={styles.Logo} src='./Nutrifitlogo.jpg' alt='Logo'></img>
-                    <nav>
-                        <div className={styles.sidemenu}>
-                            <ul className={`${styles.ull} flex flex-col items-center justify-center`}>
-                                <li className={`${styles.li}`}>
-                                    <Link href="/Home" className="flex items-center">Home
-                                        <span><img className="w-6" src='./icons8-home-48.png' 
-                                            alt="Home Icon"></img></span>
-                                    </Link>
-                                    </li>
-                                    <li className={`${styles.li}`}>
-                                    <Link href="/Login" className="flex items-center">Login
-                                        <span><img className="w-6" src='./icons8-login-91.png' 
-                                            alt="Login Icon"></img></span>
-                                    </Link>
-                                    </li>
-                                    <li className={`${styles.li}`}>
-                                    <Link href="/Signup" className="flex items-center">Signup
-                                        <span><img className="w-6" src='./icons8-sign-up-32.png' 
-                                            alt="Signup Icon"></img></span>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </>
-    );
-  }
+    <nav className={styles.navcontainer}>
+      <Link href="/Home" className='flex justify-center items-center'>
+        <img className={styles.Logo} src='./Nutrifitlogo.jpg' alt='Logo' />
+      </Link>
+      <div className="flex justify-center items-center gap-10">
+        <Link href="/Home">Home</Link>  
+        <Link href="/About">About</Link>
+      </div>
+      <div className="flex justify-start items-center gap-8">
+          <Link href="/Login">Login</Link>
+          <Link className="bg-red-950 rounded-md p-2" href="/Signup">Signup</Link>
+          <div className="flex mb-16">
+            <Toggler />
+          </div>
+      </div>
+    </nav>
+  );
+}
 
-export default NavbarDesktop
+export default NavbarDesktop;

@@ -28,7 +28,7 @@ const Toggler = () => {
     
     
   return (
-    <div className="flex justify-end mt-1.5">
+    <div className="flex justify-end">
         <div className="relative w-16 h-8 flex items-center 
             bg-gray-400 dark:bg-teal-500 cursor-pointer 
             rounded-full p-1 mr-1.5"

@@ -34,7 +34,7 @@ export default function Login() {
                 setTimeout(async () => {
                   setNotificationVisible(false);
                   await signIn('credentials', { email, password }); 
-                }, 4150);
+                }, 4250);
               } else {
                 setNotificationVisible(true);
                 setTimeout(() => {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 import styles from '../styles/NavBar.module.css';
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [manualClose, setManualClose] = useState(false);
     const sideMenuRef = useRef(null);
+    const session = useSession();
+    const status = session.status;
 
     const isXShape = showOverlay;
 
@@ -57,6 +60,8 @@ export default function NavBar() {
                                 alt="Home Icon"></img></span>
                         </Link>
                         </li>
+                        {status === 'unauthenticated' && (
+                            <>
                         <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
                         <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login
                             <span><img className="w-6" src='./icons8-login-91.png' 
@@ -69,6 +74,11 @@ export default function NavBar() {
                                 alt="Signup Icon"></img></span>
                         </Link>
                         </li>
+                        </>
+                        )}
+                        {status === 'authenticated' && (
+                        <button type='button' className="bg-red-950 rounded-md p-2"  onClick={() => signOut()}>Logout</button>
+                        )}
                     </ul>
                     </div>
                 </div>

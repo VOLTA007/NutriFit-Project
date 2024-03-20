@@ -2,8 +2,12 @@ import React from 'react';
 import styles from '../styles/NavbarDesktop.module.css';
 import Link from 'next/link';
 import Toggler from './Toggler';
+import { signOut, useSession } from 'next-auth/react';
 
 const NavbarDesktop = () => {
+  const session = useSession();
+  const status = session.status;
+
   return (
     <nav className={styles.navcontainer}>
       <Link href="/Home" className='flex justify-center items-center'>
@@ -14,11 +18,19 @@ const NavbarDesktop = () => {
         <Link href="/About">About</Link>
       </div>
       <div className="flex justify-start items-center gap-8">
-          <Link href="/Login">Login</Link>
-          <Link className="bg-red-950 rounded-md p-2" href="/Signup">Signup</Link>
-          <div className="flex mb-16">
-            <Toggler />
-          </div>
+        {status === 'unauthenticated' && (
+          <>
+            <Link href="/Login" >Login</Link>
+            <Link href="/Signup" className="bg-red-950 rounded-md p-2">Signup</Link>
+          </>
+        )}
+        {status === 'authenticated' && (
+          <button type='button' className="bg-red-950 rounded-md p-2"  onClick={() => signOut()}>Logout</button>
+        )}
+
+        <div className="flex mb-16">
+          <Toggler />
+        </div>
       </div>
     </nav>
   );

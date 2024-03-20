@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
-import { useRouter } from 'next/router'; 
+import { useRouter } from 'next/router';
+import { signIn, useSession } from 'next-auth/react'
+
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -11,12 +13,17 @@ export default function Login() {
     const [notificationVisible, setNotificationVisible] = useState(false);
     const [message, setMessage] = useState('')
     const router = useRouter();
+    const session = useSession();
+    const status = session.status;
+    console.log(session);
+
+    if(status === 'authenticated'){
+        router.push('/Home')
+    }
     
     async function handleFormSubmit(e) {
         e.preventDefault();
-    
         setIsLoading(true);
-    
         try {
             const response = await axios.post(`${domain}/UserLogin`, { email, password });
             const { success } = response.data;
@@ -24,11 +31,11 @@ export default function Login() {
             if (success) {
                 setMessage('Logged in Successfully'); // Set success message
                 setNotificationVisible(true); // Show notification bar
-                setTimeout(() => {
-                    setNotificationVisible(false); // Hide notification bar after 5000ms
-                    router.push('/Home'); // Redirect to Home after 5000ms
+                setTimeout(async () => {
+                  setNotificationVisible(false);
+                  await signIn('credentials', { email, password }); // Sign in the user 
                 }, 5000);
-            } else {
+              } else {
                 setNotificationVisible(true);
                 setTimeout(() => {
                     setNotificationVisible(false);
@@ -51,11 +58,12 @@ export default function Login() {
                 setMessage('An error occurred while logging in. Please try again later.'); // Set error message
             }
         } finally {
-            // Delay for 5000ms before disabling isLoading state
-            setTimeout(() => {
-                setIsLoading(false); // Disable isLoading after 5000ms
+            // Delay for 5000ms before disabling isLoading state and signing in
+            setTimeout(async () => {
+                setIsLoading(false); // Disable isLoading after signing in
             }, 5000);
         }
+        
     }
 
     return (
@@ -99,3 +107,50 @@ export default function Login() {
         </>
     )
 }
+
+
+
+/*
+
+try {
+            const response = await axios.post(`${domain}/UserLogin`, { email, password });
+            const { success } = response.data;
+    
+            if (success) {
+                setMessage('Logged in Successfully'); // Set success message
+                setNotificationVisible(true); // Show notification bar
+                setTimeout(() => {
+                    setNotificationVisible(false); // Hide notification bar after 5000ms
+                    router.push('/Home'); // Redirect to Home after 5000ms
+                }, 5000);
+            } else {
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
+                setMessage('Invalid email or password. Please try again.'); // Set error message
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
+                setMessage('Invalid Email or Password. Please try again.'); // Set error message
+            } else {
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                }, 5000);
+                console.error('Error logging in:', error);
+                setMessage('An error occurred while logging in. Please try again later.'); // Set error message
+            }
+        } finally {
+            // Delay for 5000ms before disabling isLoading state
+            setTimeout(() => {
+                setIsLoading(false); // Disable isLoading after 5000ms
+            }, 5000);
+        }
+    }
+
+    */

@@ -33,14 +33,14 @@ export default function Login() {
                 setNotificationVisible(true); // Show notification bar
                 setTimeout(async () => {
                   setNotificationVisible(false);
-                  await signIn('credentials', { email, password }); // Sign in the user 
-                }, 5000);
+                  await signIn('credentials', { email, password }); 
+                }, 4150);
               } else {
                 setNotificationVisible(true);
                 setTimeout(() => {
                     setNotificationVisible(false);
                 }, 5000);
-                setMessage('Invalid email or password. Please try again.'); // Set error message
+                setMessage('Invalid email or password. Please try again.');
             }
         } catch (error) {
             if (error.response && error.response.status === 401) {
@@ -60,8 +60,8 @@ export default function Login() {
         } finally {
             // Delay for 5000ms before disabling isLoading state and signing in
             setTimeout(async () => {
-                setIsLoading(false); // Disable isLoading after signing in
-            }, 5000);
+                setIsLoading(false); 
+            }, 6000);
         }
         
     }

@@ -99,7 +99,6 @@ export default function Signup() {
                     disabled={isLoading}>
                     {isLoading ? (<div className={styles.loader}></div>) : ('Signup')}
                 </button>
-
             </form>
 
             {notificationVisible && (

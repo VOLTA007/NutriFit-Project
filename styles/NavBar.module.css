@@ -60,7 +60,7 @@
 
 .sidemenu.active {
     width: 130px;
-    height: 40vh; 
+    
     transition: all 1s ease;
 }
 
@@ -70,7 +70,7 @@
     right: 0;
     bottom: 0;
     width: 0;
-    height: 0;
+    height: 45vh; 
     background-color: hsl(0, 0%, 14%);
     margin-right: -10px;
     display: block;

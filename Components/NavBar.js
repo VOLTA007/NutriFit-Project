@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/NavBar.module.css';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
+import Toggler from "./Toggler"
 
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
@@ -74,6 +75,7 @@ export default function NavBar() {
                                 alt="Signup Icon"></img></span>
                         </Link>
                         </li>
+                        <Toggler />
                         </>
                         )}
                         {status === 'authenticated' && (

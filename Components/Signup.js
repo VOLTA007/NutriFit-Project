@@ -97,7 +97,7 @@ export default function Signup() {
                     className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
                     type="submit" 
                     disabled={isLoading}>
-                    {isLoading ? (<div className="loader"></div>) : ('Signup')}
+                    {isLoading ? (<div className={styles.loader}></div>) : ('Signup')}
                 </button>
 
             </form>

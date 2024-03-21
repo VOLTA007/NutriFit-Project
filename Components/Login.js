@@ -93,7 +93,7 @@ export default function Login() {
                     className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
                     type="submit" 
                     disabled={isLoading}>
-                    {isLoading ? (<div className="loader"></div>) : ('Login')}
+                    {isLoading ? (<div className={styles.loader}></div>) : ('Login')}
                 </button>
 
             </form>

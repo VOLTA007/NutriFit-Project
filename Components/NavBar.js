@@ -81,6 +81,8 @@ export default function NavBar() {
                         {status === 'authenticated' && (
                         <button type='button' className="bg-red-950 rounded-md p-2"  onClick={() => signOut()}>Logout</button>
                         )}
+                        <div style={{ paddingTop: '40px' }}></div>
+                        <Toggler />
                     </ul>
                     </div>
                 </div>

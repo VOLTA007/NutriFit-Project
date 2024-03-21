@@ -74,6 +74,7 @@ export default function NavBar() {
                             <span><img className="w-6" src='./icons8-sign-up-32.png' 
                                 alt="Signup Icon"></img></span>
                         </Link>
+                        
                         </li>
                         <Toggler />
                         </>
@@ -81,8 +82,13 @@ export default function NavBar() {
                         {status === 'authenticated' && (
                         <button type='button' className="bg-red-950 rounded-md p-2"  onClick={() => signOut()}>Logout</button>
                         )}
-                        <div style={{ paddingTop: '40px' }}></div>
-                        <Toggler />
+                        
+                        {status === 'authenticated' && (
+                            <>
+                            <div style={{ paddingTop: '40px' }}></div>
+                            <Toggler />
+                            </>
+                        )}
                     </ul>
                     </div>
                 </div>

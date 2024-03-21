@@ -7,11 +7,20 @@ import Toggler from "./Toggler"
 export default function NavBar() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [manualClose, setManualClose] = useState(false);
+    const [logOut, setlogOut] = useState(false)
     const sideMenuRef = useRef(null);
     const session = useSession();
     const status = session.status;
 
     const isXShape = showOverlay;
+
+    const handleClick = () => {
+        setlogOut(!logOut);
+        setTimeout(() => {
+            signOut();
+        }, 2000);
+        
+      };
 
 
     useEffect(() => {
@@ -80,9 +89,17 @@ export default function NavBar() {
                         </>
                         )}
                         {status === 'authenticated' && (
-                        <button type='button' className="bg-red-950 rounded-md p-2"  onClick={() => signOut()}>Logout</button>
+                            <>
+                            <button
+                                type='button'
+                                className={`${logOut ? styles.loader : 'bg-red-950 rounded-md p-2'}`}
+                                onClick={handleClick}
+                            >
+                            {logOut ? '' : 'Logout'}
+                            </button>
+                            </>
                         )}
-                        
+
                         {status === 'authenticated' && (
                             <>
                             <div style={{ paddingTop: '40px' }}></div>

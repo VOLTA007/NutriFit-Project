@@ -75,7 +75,7 @@ export default function Signup() {
             <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-80 bg-[#edfb14] rounded-xl
                  grid grid-rows-4 mt-24 m-8 p-5 gap-6">
 
-                <h1 className="place-self-center text-center">Signup <span className="flex items-center justify-center"><img src='./icons8-login-90.png'
+                <h1 className="place-self-center text-center">Sign Up <span className="flex items-center justify-center"><img src='./icons8-sign-up-31.png'
                 className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}

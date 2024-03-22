@@ -78,7 +78,7 @@ export default function NavBar() {
                         </Link>
                         </li>
                         <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
-                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">Signup
+                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">Sign Up
                             <span><img className="w-6" src='./icons8-sign-up-32.png' 
                                 alt="Signup Icon"></img></span>
                         </Link>

@@ -30,7 +30,7 @@ const NavbarDesktop = () => {
         {status === 'unauthenticated' && (
           <>
             <Link href="/Login" >Login</Link>
-            <Link href="/Signup" className="bg-red-950 rounded-md p-2">Signup</Link>
+            <Link href="/Signup" className="bg-red-950 rounded-md p-2">Sign Up</Link>
           </>
         )}
         {status === 'authenticated' && (

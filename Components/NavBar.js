@@ -82,30 +82,28 @@ export default function NavBar() {
                             <span><img className="w-6" src='./icons8-sign-up-32.png' 
                                 alt="Signup Icon"></img></span>
                         </Link>
-                        
                         </li>
-                        <Toggler />
                         </>
                         )}
                         {status === 'authenticated' && (
                             <>
-                            <button
-                                type='button'
-                                className={`${logOut ? styles.loader : 'bg-red-950 rounded-md p-2'}`}
-                                onClick={handleClick}
-                            >
-                            {logOut ? '' : 'Logout'}
-                            </button>
+                                <li className={`${showOverlay ? '' : styles.hidden2}`}>
+                                    <button
+                                        type='button'
+                                        className={`${logOut ? styles.loader : 'bg-red-950 rounded-md p-2'}`}
+                                        onClick={handleClick}
+                                    >
+                                        {logOut ? '' : 'Logout'}
+                                    </button>
+                                    <div style={{ paddingTop: '40px' }}></div>
+                                </li>
                             </>
                         )}
-
-                        {status === 'authenticated' && (
-                            <>
-                            <div style={{ paddingTop: '40px' }}></div>
-                            <Toggler />
-                            </>
-                        )}
+                        <li className={`${showOverlay ? '' : styles.hidden2}`}>
+                            <Toggler/>
+                        </li>
                     </ul>
+                    
                     </div>
                 </div>
             </div>

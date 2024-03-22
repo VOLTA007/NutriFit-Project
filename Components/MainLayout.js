@@ -8,7 +8,7 @@ export default function MainLayout(props) {
     return (
         <>
         <SessionProvider>
-                <div style={{ paddingTop: '120px' }}></div>
+                <div style={{ paddingTop: '112px' }}></div>
                 <Header />
                 <div>{props.children}</div>
                 <Footer />

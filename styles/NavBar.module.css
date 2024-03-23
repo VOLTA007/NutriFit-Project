@@ -1,6 +1,6 @@
 .navcontainer{
+    position: relative;
     background-color: hsl(0,0%,8%);
-    width: 100%;
     height: 80px;
     color: white;
 }
@@ -60,7 +60,6 @@
 
 .sidemenu.active {
     width: 130px;
-    
     transition: all 1s ease;
 }
 
@@ -68,17 +67,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     width: 0;
+    margin-right: -10px;
     height: 400px; 
     background-color: hsl(0, 0%, 14%);
-    margin-right: -10px;
-    display: block;
     transition: all 0.5s ease;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 30px;
     z-index: 1;
 }
+
+
 
 .overlay {
     position: fixed;
@@ -119,11 +118,13 @@
 .ull.hidden{
     opacity: 0;
     transition: opacity 0.1s ease;
+    visibility: hidden;
 }
 
 
 .hidden2 {
     visibility: hidden;
+    display: none;
   }
 
 

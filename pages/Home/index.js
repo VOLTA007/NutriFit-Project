@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <GymSlider>
         {images.map((image) => (
-          <img src={image} />
+          <img key={index} src={image} />
         ))}
       </GymSlider>
     </>

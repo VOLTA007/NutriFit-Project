@@ -63,7 +63,7 @@ export default function NavBar() {
 
                        <ul className={`${styles.ull} ${showOverlay ? '' : styles.hidden} flex flex-col items-center justify-center`}>
                             
-                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden}`}>
                         <Link href="/Home" onClick={toggleOverlay} className="flex items-center">Home
                             <span><img className="w-6" src='./icons8-home-48.png' 
                                 alt="Home Icon"></img></span>
@@ -71,13 +71,13 @@ export default function NavBar() {
                         </li>
                         {status === 'unauthenticated' && (
                             <>
-                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden}`}>
                         <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login
                             <span><img className="w-6" src='./icons8-login-91.png' 
                                 alt="Login Icon"></img></span>
                         </Link>
                         </li>
-                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden2}`}>
+                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden}`}>
                         <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">Sign Up
                             <span><img className="w-6" src='./icons8-sign-up-32.png' 
                                 alt="Signup Icon"></img></span>
@@ -87,7 +87,7 @@ export default function NavBar() {
                         )}
                         {status === 'authenticated' && (
                             <>
-                                <li className={`${showOverlay ? '' : styles.hidden2}`}>
+                                <li className={`${showOverlay ? '' : styles.hidden}`}>
                                     <button
                                         type='button'
                                         className={`${logOut ? styles.loader : 'bg-red-950 rounded-md p-2'}`}
@@ -99,7 +99,7 @@ export default function NavBar() {
                                 </li>
                             </>
                         )}
-                        <li className={`${showOverlay ? '' : styles.hidden2}`}>
+                        <li className={`${showOverlay ? '' : styles.hidden}`}>
                             <Toggler/>
                         </li>
                     </ul>

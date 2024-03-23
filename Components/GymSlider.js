@@ -1,34 +1,42 @@
-import React, { useState } from 'react';
+import styles from '../styles/GymSlider.module.css';
+import React, { useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
-const GymSlider = () => {
-  const images = ['./Gym1.jpg', './Gym2.jpg', './Gym3.jpg'];
-  const [activeIndex, setActiveIndex] = useState(0);
+const GymSlider = ({ children: images }) => {
+  const [curr, setCurrIndex] = useState(0);
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrIndex((curr) => (curr === images.length - 1 ? 0 : curr + 1));
   };
 
   const handlePrevious = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrIndex((curr) => (curr - 1 + images.length) % images.length);
   };
 
-  setTimeout(() => {
-    handleNext()
-  }, 5000);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <>
-      <div className="max-h-[780px] m-auto w-full relative group">
-        <div className="w-full h-full bg-center bg-cover duration-500">
-          <img src={images[activeIndex]} alt={`Image ${activeIndex + 1}`} />
+      <div className="overflow-hidden max-h-[780px] m-auto w-full relative group">
+        <div className="flex w-full h-full bg-center bg-cover duration-500 transition-transform ease"
+        style={{transform: `translateX(-${curr * 100}%)`}}
+        >
+          {images}
         </div>
-        <button onClick={handlePrevious} className="hidden absolute top-[50%] translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactLeft size={30} />
-        </button>
-        <button onClick={handleNext} className="hidden absolute top-[50%] translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactRight size={30} />
-        </button>
+        <div>
+          <button onClick={handlePrevious}  className="hidden absolute top-[50%] translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactLeft size={30} />
+          </button>
+          <button onClick={handleNext} className="hidden absolute top-[50%] translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactRight size={30} />
+          </button>
+        </div>
       </div>
     </>
   );

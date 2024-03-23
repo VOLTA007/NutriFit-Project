@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <GymSlider>
-        {images.map((image) => (
+        {images.map((image, index) => (
           <img key={index} src={image} />
         ))}
       </GymSlider>

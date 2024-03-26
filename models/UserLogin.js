@@ -11,7 +11,15 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-}, { timestamps: true}
+    is_subscribed: {
+        type: Boolean,
+        default: false
+      },
+    subscription_expiration_date: {
+        type: Date,
+        default: null 
+    }
+}, { timestamps: true }
 
 );
 

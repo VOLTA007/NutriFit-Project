@@ -5,6 +5,7 @@ import Toggler from './Toggler';
 import { signOut, useSession } from 'next-auth/react';
 
 
+
 const NavbarDesktop = () => {
   const session = useSession();
   const [logOut, setlogOut] = useState(false)

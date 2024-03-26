@@ -1,34 +1,11 @@
-import React, { useEffect } from 'react';
-import { generateKashierOrderHash } from '@/models/backend'; // Update the path accordingly
-import config from '@/utils/Config2'; // Update the path accordingly
+import React from 'react';
+import { generateKashierOrderHash } from '@/utils/generateKashierOrderHash';
+import config from '@/utils/Config2'; 
+import { useRouter } from 'next/router';
 
 const PayPage = () => {
-  useEffect(() => {
-    // Your existing event listener logic for payment response
-    const responseCallBack = (e) => {
-      if (e.data.message === 'success') {
-        console.log('Success payment', e.data);
-        // Redirect logic here
-      } else if (e.data.message === 'failure') {
-        console.log('Failure payment', e.data);
-      }
-    };
-
-    if (window.addEventListener) {
-      window.addEventListener('message', responseCallBack, false);
-    } else {
-      window.attachEvent('onmessage', responseCallBack);
-    }
-
-    return () => {
-      // Clean up event listener when component unmounts
-      if (window.removeEventListener) {
-        window.removeEventListener('message', responseCallBack);
-      } else {
-        window.detachEvent('onmessage', responseCallBack);
-      }
-    };
-  }, []);
+  const router = useRouter();
+ 
 
   const { baseUrl } = config;
   const configObj = config[config.mode];
@@ -45,7 +22,7 @@ const PayPage = () => {
       'Cutomer Phone': '+20100XXX',
       'Cutomer Email': 'mkhalid@kashier.io',
     }),
-    merchantRedirect: 'http://localhost:3000/Home',
+    merchantRedirect: 'http://localhost:3000/api/payment-redirect',
     display: 'en',
     failureRedirect: 'true',
     redirectMethod: 'get',

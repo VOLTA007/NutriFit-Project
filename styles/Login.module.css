@@ -11,6 +11,23 @@
   outline: none;
 }
 
+.inputcontainer {
+  display: flex;
+  align-items: center; /* Align icon vertically */
+}
+
+.input {
+  flex: 1; /* Allow input to take up remaining space */
+}
+
+.icon {
+  margin-left: 10px; /* Adjust horizontal spacing */
+  width: 20px; /* Set icon width */
+  height: 20px; /* Set icon height */
+}
+
+
+
 .notification {
   position: fixed;
   overflow: hidden;

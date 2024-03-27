@@ -17,6 +17,12 @@ const router = createRouter()
         // If the user already exists, return an error
         return res.status(401).json({ success: false, message: 'User already exists' });
       }
+
+      // Check if password meets the minimum length requirement (e.g., 8 characters)
+      if (password.length < 8) {
+        // If password length is less than 8 characters, return an error
+        return res.status(400).json({ success: false, message: 'Password must be at least 8 characters long' });
+      }
   
       // Create a new user object with the email and hashed password
       const newUser = new UserLogin({

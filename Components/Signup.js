@@ -25,50 +25,59 @@ export default function Signup() {
 
     async function handleFormSubmit(e) {
         e.preventDefault();
-
+    
+        
+    
         setIsLoading(true);
         try {
             const response = await axios.post(`${domain}/UserSignup`, { email, password });
             const { success } = response.data;
-
+    
             if (success) {
-                setMessage('User Created successfully');
-                setNotificationVisible(true);
-                setTimeout(() => {
-                    setNotificationVisible(false); 
-                    router.push('/Login'); 
-                }, 5000);
-            } else {
-                setMessage('Already Registered, Please Login');
+                setMessage('User created successfully');
                 setNotificationVisible(true);
                 setTimeout(() => {
                     setNotificationVisible(false);
-                    router.push('/Login'); 
+                    router.push('/Login');
+                }, 5000);
+            } else {
+                setMessage('Already registered, please login');
+                setNotificationVisible(true);
+                setTimeout(() => {
+                    setNotificationVisible(false);
+                    router.push('/Login');
                 }, 5000);
             }
         } catch (error) {
-            if (error.response && error.response.status === 401) {
-                setMessage('Already Registered, Please Login');
-                setNotificationVisible(true);
-                setTimeout(() => {
-                    setNotificationVisible(false);
-                    router.push('/Login'); 
-                }, 5000);
-            } else {
-                console.error('Error Signing up:', error);
-                setMessage('An error occurred while Signing up. Please try again later.');
-                setNotificationVisible(true);
-                setTimeout(() => {
-                    setNotificationVisible(false);
-                }, 5000);
-            }
-        } finally {
-            // Delay for 5000ms before disabling isLoading state
+        if (error.response && error.response.status === 400) {
+            // If the error status is 400 (Bad Request), it means password length is too short
+            setMessage('Password must be at least 8 characters long.');
+            setNotificationVisible(true);
             setTimeout(() => {
-                setIsLoading(false); // Disable isLoading after 5000ms
+                setNotificationVisible(false);
+            }, 5000);
+        } else if (error.response && error.response.status === 401) {
+            setMessage('Already registered, Please login');
+            setNotificationVisible(true);
+            setTimeout(() => {
+                setNotificationVisible(false);
+                router.push('/Login');
+            }, 5000);
+        } else {
+            console.error('Error signing up:', error);
+            setMessage('An error occurred while signing up. Please try again later.');
+            setNotificationVisible(true);
+            setTimeout(() => {
+                setNotificationVisible(false);
             }, 5000);
         }
+    } finally {
+        // Delay for 5000ms before disabling isLoading state
+        setTimeout(() => {
+            setIsLoading(false); // Disable isLoading after 5000ms
+        }, 5000);
     }
+}
 
     return (
         <>
@@ -77,6 +86,7 @@ export default function Signup() {
 
                 <h1 className="place-self-center text-center">Sign Up <span className="flex items-center justify-center"><img src='./icons8-sign-up-31.png'
                 className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
+                <div className={styles.inputcontainer}>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
@@ -84,14 +94,19 @@ export default function Signup() {
                     className={`${styles.input} rounded-md p-2 dark:bg-[#0d121b] dark:text-gray-50 ${isLoading ? styles.disabled : ''}`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     required
-                    disabled={isLoading} />
+                />
+                <img src="./email.png" className={styles.icon} alt="Email icon" />
+                </div>
 
+                <div className={styles.inputcontainer}>
                 <input 
                     onChange={(e) => setPassword(e.target.value)}
                     type="password" 
                     value={password} 
                     className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50 p-2 ${isLoading ? styles.disabled : ''}`}
                     disabled={isLoading} />
+                <img src="./padlock.png" className={styles.icon} alt="Password icon" />
+                </div>
 
                 <button 
                     className={`${styles.but} ${isLoading ? styles.loading : ''}`} 

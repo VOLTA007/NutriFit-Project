@@ -34,7 +34,7 @@ export default function Login() {
                 setTimeout(async () => {
                   setNotificationVisible(false);
                   await signIn('credentials', { email, password }); 
-                }, 5000);
+                }, 4250);
               } else {
                 setNotificationVisible(true);
                 setTimeout(() => {
@@ -73,6 +73,7 @@ export default function Login() {
 
                 <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png'
                 className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
+                <div className={styles.inputcontainer}>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
@@ -80,15 +81,20 @@ export default function Login() {
                     className={`${styles.input} rounded-md p-2 dark:bg-[#0d121b] dark:text-gray-50 ${isLoading ? styles.disabled : ''}`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     required
-                    disabled={isLoading} />
+                />
+                <img src="./email.png" className={styles.icon} alt="Email icon" />
+                </div>
 
+                <div className={styles.inputcontainer}>
                 <input 
                     onChange={(e) => setPassword(e.target.value)}
                     type="password" 
                     value={password} 
                     className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50 p-2 ${isLoading ? styles.disabled : ''}`}
                     disabled={isLoading} />
-
+                <img src="./padlock.png" className={styles.icon} alt="Password icon" />
+                </div>
+                    
                 <button 
                     className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
                     type="submit" 

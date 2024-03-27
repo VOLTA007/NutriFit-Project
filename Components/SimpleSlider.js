@@ -27,13 +27,18 @@ function SamplePrevArrow(props) {
 
 export default function SimpleSlider() {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 4000,
+    cssEase: "ease",
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    pauseOnHover: false
   };
   return (
     <Slider {...settings}>

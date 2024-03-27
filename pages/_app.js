@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Home from '@/pages/Home/index';
 
+
+
 export default function App({ Component, pageProps }) {
 
   const router = useRouter();

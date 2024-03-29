@@ -29,6 +29,7 @@ export default function MainLayout(props) {
                 <Header />
                 {isMobile ? <NavBar /> : <NavBarDesktop />}
                 <div>{props.children}</div>
+                <div style={{paddingTop: '120px'}}></div>
                 <Footer />
             </SessionProvider>
         </>

@@ -12,8 +12,9 @@ const Home = () => {
     <>
       <SimpleSlider />
       <div style={{paddingTop: '120px'}}></div>
-      {status === 'authenticated' && <Subscription />}
-      <PayPage />
+      {/* {status === 'authenticated' && <Subscription />} */}
+      {/* <PayPage /> */}
+
     </>
   );
 };

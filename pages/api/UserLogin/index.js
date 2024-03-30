@@ -1,7 +1,6 @@
 import { createRouter } from "next-connect";
 import dbConnectLogin from "@/utils/dbConnectLogin";
 import UserLogin from "@/models/UserLogin";
-import bcrypt from "bcrypt"
 
 dbConnectLogin();
 

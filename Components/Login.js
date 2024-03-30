@@ -65,12 +65,12 @@ export default function Login() {
         <>
             {status === 'authenticated' ? (
                 <div className='flex items-center justify-center h-[50vh]'>
-                    <p>Logged in,</p>
-                    <button>
-                    <Link className={`${styles.link} underline`} href="/Home">
+                <p>Logged in,</p>
+                <button>
+                    <Link href="/Home" className={`dark:text-white dark:underline`}>
                         Home Page
                     </Link>
-                    </button>
+                </button>
                 </div>
             ) : (
                 <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[120px] m-8 p-5 gap-6">
@@ -96,12 +96,11 @@ export default function Login() {
                         <img src="./padlock.png" className={styles.icon} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
                     </div>
                     <div>
-                    <p className={`dark:text-white`}>
-                        Create Account Here! {' '}
-                        <Link href="/Signup">
-                            <a className={`dark:text-white underline`}>Signup</a>
-                        </Link>
-                    </p>
+                        <p>Create Account Here! {' '}
+                            <Link href="/Signup">
+                                Signup
+                            </Link>
+                        </p>
                     </div>
                     <button 
                         className={`${styles.but} ${isLoading ? styles.loading : ''}`} 

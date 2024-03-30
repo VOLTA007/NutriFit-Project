@@ -96,11 +96,12 @@ export default function Login() {
                         <img src="./padlock.png" className={styles.icon} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
                     </div>
                     <div>
-                        <p>Create Account Here! {' '}
-                            <Link href="/Signup">
-                                Signup
-                            </Link>
-                        </p>
+                    <p className={`dark:text-white`}>
+                        Create Account Here! {' '}
+                        <Link href="/Signup">
+                            <a className={`dark:text-white underline`}>Signup</a>
+                        </Link>
+                    </p>
                     </div>
                     <button 
                         className={`${styles.but} ${isLoading ? styles.loading : ''}`} 

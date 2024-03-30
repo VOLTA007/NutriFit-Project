@@ -36,7 +36,7 @@ export default function MainLayout({ children }) {
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 1.5 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 25, ease: [0.22, 1, 0.36, 1] }}
         />
 
         <motion.div
@@ -44,7 +44,7 @@ export default function MainLayout({ children }) {
           initial={{ scaleY: 1.5 }}
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 25, ease: [0.22, 1, 0.36, 1] }}
         />
         <Header />
         {isMobile ? <NavBar /> : <NavBarDesktop />}

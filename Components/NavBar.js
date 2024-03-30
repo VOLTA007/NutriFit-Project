@@ -72,7 +72,7 @@ export default function NavBar() {
                         {status === 'unauthenticated' && (
                             <>
                         <li className={`${styles.li} bg-[hsl(63,96%,53%)] text-black p-1 rounded-sm ${showOverlay ? '' : styles.hidden}`}>
-                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login  <br></br>Sign up
+                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login <br></br>Sign up
                         </Link>
                         </li>
                         </>
@@ -99,10 +99,9 @@ export default function NavBar() {
                         )}
                         <li className={`${showOverlay ? '' : styles.hidden}`}>
                         <div style={{ paddingTop: '10px' }}></div>
-                            <Toggler/>
+                            <Toggler />
                         </li>
                     </ul>
-                    
                     </div>
                 </div>
             </div>

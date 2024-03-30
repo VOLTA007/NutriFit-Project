@@ -34,7 +34,7 @@ const Toggler = () => {
             rounded-full p-1 mr-1.5"
             onClick={()=>setdarkMode(!darkMode)}>
 
-            <FaMoon className="text-black size={18}"/>
+            <FaMoon className="text-black" size={18}/>
 
             <div
                 className={`absolute bg-white dark:bg-slate-550 w-6 h-6 rounded-full shadow-md transition-transform duration-500 ${

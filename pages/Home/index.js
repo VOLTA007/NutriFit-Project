@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import SimpleSlider from '@/Components/SimpleSlider';
 
+
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true); // State to manage loading
   const session = useSession();
@@ -45,7 +46,6 @@ const Home = () => {
       </div>
 
       ) : (
-        // Render the SimpleSlider component when isLoading is false
         <SimpleSlider />
       )}
     </>

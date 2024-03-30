@@ -1,5 +1,3 @@
-"use client"
-
 import { SessionProvider } from "next-auth/react";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -24,17 +22,13 @@ export default function MainLayout({ children }) {
     checkIsMobile();
   }, []);
 
-  return (
-    <SessionProvider>
-      <Layout isMobile={isMobile} router={router}>
-        {children}
-      </Layout>
-    </SessionProvider>
-  );
+  if (isMobile === null) {
+    return <div></div>; 
 }
 
-function Layout({ children, isMobile, router }) {
+ 
   return (
+  <SessionProvider>
     <AnimatePresence mode="wait">
       <motion.div key={router.pathname}>
         <motion.div
@@ -59,5 +53,6 @@ function Layout({ children, isMobile, router }) {
         <Footer />
       </motion.div>
     </AnimatePresence>
-  );
+  </SessionProvider>
+  )
 }

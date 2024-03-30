@@ -4,6 +4,8 @@ import axios from 'axios';
 import domain from '@/utils/Config';
 import { useRouter } from 'next/router'; 
 import { signIn, useSession } from 'next-auth/react'
+import Link from 'next/link';
+
 
 
 
@@ -81,7 +83,7 @@ export default function Signup() {
 
     return (
         <>
-            <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-80 bg-[#edfb14] rounded-xl
+            <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-[400px] bg-[#edfb14] rounded-xl
                  grid grid-rows-4 mt-[120px] m-8 p-5 gap-6">
 
                 <h1 className="place-self-center text-center">Sign Up <span className="flex items-center justify-center"><img src='./icons8-sign-up-31.png'
@@ -106,6 +108,14 @@ export default function Signup() {
                     className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50 p-2 ${isLoading ? styles.disabled : ''}`}
                     disabled={isLoading} />
                 <img src="./padlock.png" className={styles.icon} alt="Password icon" />
+                </div>
+
+                <div>
+                    <p>Already Have an account? {' '}
+                        <Link href="/Login">
+                             Login
+                        </Link>
+                    </p>
                 </div>
 
                 <button 

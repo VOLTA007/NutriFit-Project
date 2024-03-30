@@ -65,10 +65,10 @@ export default function Login() {
         <>
             {status === 'authenticated' ? (
                 <div className='flex items-center justify-center h-[50vh]'>
-                <p>Logged in,</p>
+                <p className={`dark:text-white`}>Logged in <br></br></p>
                 <button>
                     <Link href="/Home" className={`dark:text-white dark:underline`}>
-                        Home Page
+                        Home Page 💪:D
                     </Link>
                 </button>
                 </div>

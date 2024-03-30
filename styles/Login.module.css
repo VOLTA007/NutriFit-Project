@@ -12,16 +12,21 @@
 }
 
 .inputcontainer {
+  position: relative; /* Set position relative for the container */
   display: flex;
   align-items: center; /* Align icon vertically */
 }
 
 .input {
-  flex: 1; /* Allow input to take up remaining space */
+  flex: 1;
+   position: relative;
 }
 
 .icon {
-  margin-left: 10px; /* Adjust horizontal spacing */
+  position: absolute;
+  top: 50%; /* Position the icon vertically at the center of the container */
+  right: 10px; /* Adjust as needed */
+  transform: translateY(-50%); /* Move the icon up by half of its height */
   width: 20px; /* Set icon width */
   height: 20px; /* Set icon height */
 }

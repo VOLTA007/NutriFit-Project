@@ -1,7 +1,9 @@
 import React from 'react';
 import { generateKashierOrderHash } from '@/utils/generateKashierOrderHash';
 import config from '@/utils/Config2'; 
+import domain from '@/utils/Config'; 
 import { useRouter } from 'next/router';
+
 
 const PayPage = () => {
   const router = useRouter();
@@ -22,7 +24,7 @@ const PayPage = () => {
       'Cutomer Phone': '+20100XXX',
       'Cutomer Email': 'mkhalid@kashier.io',
     }),
-    merchantRedirect: 'http://localhost:3000/api/payment-redirect',
+    merchantRedirect: `${domain}/payment-redirect`,
     display: 'en',
     failureRedirect: 'true',
     redirectMethod: 'get',

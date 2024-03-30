@@ -54,7 +54,6 @@ function Layout({ children, isMobile, router }) {
         {isMobile ? <NavBar /> : <NavBarDesktop />}
         <div>{children}</div>
         <div style={{ paddingTop: "120px" }}></div>
-        <Footer />
       </motion.div>
     </AnimatePresence>
   );

@@ -74,7 +74,7 @@ export default function Login() {
                 </button>
                 </div>
             ) : (
-                <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-45 h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[120px] m-8 p-5 gap-6">
+                <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">
                     <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png' className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
                     <div className={styles.inputcontainer}>
                         <input 

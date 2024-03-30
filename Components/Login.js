@@ -68,7 +68,7 @@ export default function Login() {
                 <p className={`dark:text-white`}>Logged in--</p>
                 <br></br>
                 <button>
-                    <Link href="/Home" className={`dark:text-white dark:underline`}>
+                    <Link href="/Home" className={`dark:text-white underline`}>
                         Home Page 💪:D
                     </Link>
                 </button>
@@ -98,7 +98,7 @@ export default function Login() {
                     </div>
                     <div>
                         <p>Create Account Here! {' '}
-                            <Link href="/Signup">
+                            <Link className='underline' href="/Signup">
                                 Signup
                             </Link>
                         </p>

@@ -83,7 +83,7 @@ export default function Login() {
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     required
                 />
-                <img src="./email.png" className={styles.icon} alt="Email icon" />
+                <img src="./email.png" className={styles.icon} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Email icon" />
                 </div>
 
                 <div className={styles.inputcontainer}>
@@ -93,7 +93,7 @@ export default function Login() {
                     value={password} 
                     className={`${styles.input} rounded-md dark:bg-[#0d121b] dark:text-gray-50 p-2 ${isLoading ? styles.disabled : ''}`}
                     disabled={isLoading} />
-                <img src="./padlock.png" className={styles.icon} alt="Password icon" />
+                <img src="./padlock.png" className={styles.icon} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
                 </div>
 
                 <div>

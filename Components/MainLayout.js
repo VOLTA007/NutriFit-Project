@@ -45,12 +45,13 @@ export default function MainLayout(props) {
             exit={{ scaleY: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           />
-        </motion.div>
-        <Header />
+          <Header />
               {isMobile ? <NavBar /> : <NavBarDesktop />}
               <div>{props.children}</div>
               <div style={{paddingTop: '120px'}}></div>
               <Footer />
+        </motion.div>
+              
           </AnimatePresence>
           </SessionProvider>
         </>

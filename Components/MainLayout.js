@@ -1,3 +1,5 @@
+"use client"
+
 import { SessionProvider } from "next-auth/react";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -50,6 +52,7 @@ function Layout({ children, isMobile, router }) {
           exit={{ scaleY: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         />
+        <Header />
         {isMobile ? <NavBar /> : <NavBarDesktop />}
         <div>{children}</div>
         <div style={{ paddingTop: "120px" }}></div>

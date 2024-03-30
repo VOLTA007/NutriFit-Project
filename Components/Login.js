@@ -65,7 +65,8 @@ export default function Login() {
         <>
             {status === 'authenticated' ? (
                 <div className='flex items-center justify-center h-[50vh]'>
-                <p className={`dark:text-white`}>Logged in <br></br></p>
+                <p className={`dark:text-white`}>Logged in--</p>
+                <br></br>
                 <button>
                     <Link href="/Home" className={`dark:text-white dark:underline`}>
                         Home Page 💪:D

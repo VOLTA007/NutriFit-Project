@@ -71,20 +71,18 @@ export default function NavBar() {
                         </li>
                         {status === 'unauthenticated' && (
                             <>
-                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden}`}>
-                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login
-                            <span><img className="w-6" src='./icons8-login-91.png' 
-                                alt="Login Icon"></img></span>
-                        </Link>
-                        </li>
-                        <li className={`${styles.li} ${showOverlay ? '' : styles.hidden}`}>
-                        <Link href="/Signup" onClick={toggleOverlay} className="flex items-center">Sign Up
-                            <span><img className="w-6" src='./icons8-sign-up-32.png' 
-                                alt="Signup Icon"></img></span>
+                        <li className={`${styles.li} bg-[hsl(63,96%,53%)] text-black p-1 rounded-sm ${showOverlay ? '' : styles.hidden}`}>
+                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login  <br></br>Sign up
                         </Link>
                         </li>
                         </>
                         )}
+                        <li className={styles.li}>
+                        <Link className="p-2" href="/Pricing">Pricing</Link>
+                        </li>
+                        <li className={styles.li}>
+                        <Link className="p-2" href="/About">About us</Link>
+                        </li>
                         {status === 'authenticated' && (
                             <>
                                 <li className={`${showOverlay ? '' : styles.hidden}`}>
@@ -100,6 +98,7 @@ export default function NavBar() {
                             </>
                         )}
                         <li className={`${showOverlay ? '' : styles.hidden}`}>
+                        <div style={{ paddingTop: '10px' }}></div>
                             <Toggler/>
                         </li>
                     </ul>

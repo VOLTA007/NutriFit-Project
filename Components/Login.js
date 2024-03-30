@@ -69,7 +69,7 @@ export default function Login() {
                 <br></br>
                 <button>
                     <Link href="/Home" className={`dark:text-white underline`}>
-                        Home Page 💪:D
+                        Home Page 🏠💪:D
                     </Link>
                 </button>
                 </div>

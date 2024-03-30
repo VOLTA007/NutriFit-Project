@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
@@ -12,11 +12,15 @@ export default function Login() {
     const [isLoading, setIsLoading] = useState(false);
     const [notificationVisible, setNotificationVisible] = useState(false);
     const [message, setMessage] = useState('');
+    const [isstatus, setIsstatus] = useState(null);
     const router = useRouter();
     const session = useSession();
     const status = session.status;
-    console.log(session);
-    
+
+    useEffect(() => {
+        setIsstatus(status);
+    }, [status]);
+
     async function handleFormSubmit(e) {
         e.preventDefault();
         setIsLoading(true);
@@ -58,20 +62,23 @@ export default function Login() {
                 setIsLoading(false); 
             }, 6000);
         }
-        
+    }
+
+    if (isstatus === 'loading') {
+        return <div></div>; 
     }
 
     return (
         <>
             {status === 'authenticated' ? (
                 <div className='flex items-center justify-center h-[50vh]'>
-                <p className={`dark:text-white`}>Logged in--</p>
-                <br></br>
-                <button>
-                    <Link href="/Home" className={`dark:text-white underline`}>
-                        Home Page 🏠💪:D
-                    </Link>
-                </button>
+                    <p className={`dark:text-white`}>Logged in--</p>
+                    <br></br>
+                    <button>
+                        <Link href="/Home" className={`dark:text-white underline`}>
+                            Home Page 🏠💪:D
+                        </Link>
+                    </button>
                 </div>
             ) : (
                 <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">

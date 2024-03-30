@@ -93,7 +93,7 @@ export default function Signup() {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email" 
                     value={email}
-                    className={`${styles.input} rounded-md p-2  ${isLoading ? styles.disabled : ''}`} 
+                    className={`${styles.input} rounded-md p-2 ${isLoading ? styles.disabled : ''}`} 
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     required
                 />
@@ -105,7 +105,7 @@ export default function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                     type="password" 
                     value={password} 
-                    className={`${styles.input} rounded-md  p-2 ${isLoading ? styles.disabled : ''}`}
+                    className={`${styles.input} rounded-md p-2 ${isLoading ? styles.disabled : ''}`}
                     disabled={isLoading} />
                 <img src="./padlock.png" className={styles.icon} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
                 </div>

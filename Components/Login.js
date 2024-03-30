@@ -99,7 +99,7 @@ export default function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                             type="password" 
                             value={password} 
-                            className={`${styles.input} rounded-md  p-2 ${isLoading ? styles.disabled : ''}`}
+                            className={`${styles.input} rounded-md p-2 ${isLoading ? styles.disabled : ''}`}
                             disabled={isLoading} />
                         <img src="./padlock.png" className={`${styles.icon} `} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
                     </div>

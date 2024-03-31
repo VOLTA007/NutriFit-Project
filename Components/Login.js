@@ -72,6 +72,21 @@ export default function Login() {
     return (
         <>
             <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
+            <div style={{ paddingTop: "20px" }}></div>
+            <div className='flex justify-center items-center'>
+                    <nav className="flex px-5 py-3 justify-center items-center text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" aria-label="Breadcrumb" style={{ width: '80px' }}>
+                        <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                            <li key="home" className="inline-flex items-center">
+                                <a href="#" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                                    <svg className="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path>
+                                    </svg>
+                                    Login
+                                </a>
+                            </li>
+                        </ol>
+                    </nav>
+                    </div>
                 {status === 'authenticated' ? (
                     <div className='flex items-center justify-center h-[50vh]'>
                         <p className={`dark:text-white`}>Logged in--</p>
@@ -83,7 +98,7 @@ export default function Login() {
                         </button>
                     </div>
                 ) : (
-                    <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">
+                    <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[100px] m-8 p-5 gap-6">
                         <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png' className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
                         <div className={styles.inputcontainer}>
                             <input 

@@ -8,8 +8,8 @@ const Subscription = () => {
 
   return (
     <>
-        <div className='flex justify-center items-center pb-10'>
-          <div className="bg-red-400 rounded-sm p-8">
+        <div className='flex justify-center items-center pb-10 mt-8'>
+          <div className="bg-red-400 rounded-sm p-2">
             Subscribed
           </div>
         </div>

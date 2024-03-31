@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import Subscription from '@/Components/Subscription';
+
 
 const UserWelcome = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -52,11 +54,17 @@ const UserWelcome = () => {
                             </nav>
                         </div>
                         <div style={{ paddingTop: "20px" }}></div>
-                        <div className='m-8 sm:flex sm:justify-start sm:items-center justify-center'>
-                            <div className="relative w-16 h-16 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                                <svg className="absolute w-16 h-16 text-gray-400 -left-0 top-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
+                        <div className="flex flex-row justify-between m-8 sm:mx-[200px]">
+                            <div className='gap-4 flex justify-center items-center sm:justify-start '>
+                                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                                    <svg className="absolute w-10 h-10 text-gray-400 -right-0 top-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
+                                </div>
+                                <p className='dark:text-white text-lg'>Welcome,<br></br> Username 😊</p>
                             </div>
-                            <p className='dark:text-white text-lg'>Welcome, Username 😊</p>
+
+                            <div>
+                                <Subscription />
+                            </div>
                         </div>
                     
                     </>

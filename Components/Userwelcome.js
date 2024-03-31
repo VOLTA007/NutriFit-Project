@@ -8,7 +8,7 @@ const UserWelcome = () => {
         // Set a timeout to change the loading state after 2 seconds
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 3000);
 
         // Clear the timeout if the component unmounts or loading state changes
         return () => clearTimeout(timeoutId);

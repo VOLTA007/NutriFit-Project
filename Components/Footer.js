@@ -31,9 +31,9 @@ export default function Footer() {
                 <span class="sr-only">Loading...</span>
             </div>
         ) : (
-            <footer class="bg-white rounded-lg shadow-lg m-8 dark:bg-gray-800 bottom-0 ">
-                <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-                    <span class="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link href="/Home" class="hover:underline">NutriFit™</Link>. All Rights Reserved.</span>
+            <footer className="bg-white rounded-lg shadow-lg m-8 text-center dark:bg-gray-800 bottom-0 ">
+                <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+                    <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link href="/Home" className="hover:underline text-center">NutriFit™</Link>. All Rights Reserved.</span>
                     <ul className="flex flex-wrap justify-center items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                         <li>
                             <Link href="/About" className="hover:underline me-4 md:me-6">

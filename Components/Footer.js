@@ -9,7 +9,7 @@ export default function Footer() {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             setisLoading(false);
-          }, 3000);
+          }, 3500);
     
       return () => clearTimeout(timeoutId);
     }, [])

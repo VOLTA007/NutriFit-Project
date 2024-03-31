@@ -71,62 +71,62 @@ export default function Login() {
 
     return (
         <>
-        <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
-            {status === 'authenticated' ? (
-                <div className='flex items-center justify-center h-[50vh]'>
-                    <p className={`dark:text-white`}>Logged in--</p>
-                    <br></br>
-                    <button>
-                        <Link href="/Home" className={`dark:text-white underline`}>
-                            Home Page 🏠💪:D
-                        </Link>
-                    </button>
-                </div>
-            ) : (
-                <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">
-                    <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png' className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
-                    <div className={styles.inputcontainer}>
-                        <input 
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email" 
-                            value={email}
-                            className={`${styles.input} rounded-md p-2  ${isLoading ? styles.disabled : ''}`} 
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                            required
-                        />
-                        <img src="./email.png" className={`${styles.icon}`} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Email icon" />
-                    </div>
-                    <div className={styles.inputcontainer}>
-                        <input 
-                            onChange={(e) => setPassword(e.target.value)}
-                            type="password" 
-                            value={password} 
-                            className={`${styles.input} rounded-md p-2 ${isLoading ? styles.disabled : ''}`}
-                            disabled={isLoading} />
-                        <img src="./padlock.png" className={`${styles.icon} `} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
-                    </div>
-                    <div>
-                        <p>Create Account Here! {' '}
-                            <Link className='underline' href="/Signup">
-                                Signup
+            <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
+                {status === 'authenticated' ? (
+                    <div className='flex items-center justify-center h-[50vh]'>
+                        <p className={`dark:text-white`}>Logged in--</p>
+                        <br></br>
+                        <button>
+                            <Link href="/Home" className={`dark:text-white underline`}>
+                                Home Page 🏠💪:D
                             </Link>
-                        </p>
+                        </button>
                     </div>
-                    <button 
-                        className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
-                        type="submit" 
-                        disabled={isLoading}>
-                        {isLoading ? (<div className={styles.loader}></div>) : ('Login')}
-                    </button>
-                    {notificationVisible && (
-                        <div className={`${styles.notification} ${notificationVisible  ? styles.show : ''}`}>
-                            {message}
-                            <div className={styles.bar}></div>
+                ) : (
+                    <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">
+                        <h1 className="place-self-center text-center">Login <span className="flex items-center justify-center"><img src='./icons8-login-90.png' className="w-8 h-auto"></img></span>Welcome To Nutrifit :)</h1>
+                        <div className={styles.inputcontainer}>
+                            <input 
+                                onChange={(e) => setEmail(e.target.value)}
+                                type="email" 
+                                value={email}
+                                className={`${styles.input} rounded-md p-2  ${isLoading ? styles.disabled : ''}`} 
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                required
+                            />
+                            <img src="./email.png" className={`${styles.icon}`} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Email icon" />
                         </div>
-                    )}
-                </form>
-            )}
+                        <div className={styles.inputcontainer}>
+                            <input 
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password" 
+                                value={password} 
+                                className={`${styles.input} rounded-md p-2 ${isLoading ? styles.disabled : ''}`}
+                                disabled={isLoading} />
+                            <img src="./padlock.png" className={`${styles.icon} `} style={{ maxHeight: '20px', maxWidth: '20px' }} alt="Password icon" />
+                        </div>
+                        <div>
+                            <p>Create Account Here! {' '}
+                                <Link className='underline' href="/Signup">
+                                    Signup
+                                </Link>
+                            </p>
+                        </div>
+                        <button 
+                            className={`${styles.but} ${isLoading ? styles.loading : ''}`} 
+                            type="submit" 
+                            disabled={isLoading}>
+                            {isLoading ? (<div className={styles.loader}></div>) : ('Login')}
+                        </button>
+                    </form>
+                )}
             </motion.div>
+            {notificationVisible && (
+                <div className={`${styles.notification} ${notificationVisible ? styles.show : ''}`}>
+                    {message}
+                    <div className={styles.bar}></div>
+                </div>
+            )}
         </>
     );
 }

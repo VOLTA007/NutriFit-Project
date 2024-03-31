@@ -127,6 +127,7 @@ export default function Signup() {
                     {isLoading ? (<div className={styles.loader}></div>) : ('Signup')}
                 </button>
             </form>
+            </motion.div>
 
             {notificationVisible && (
                 <div className={`${styles.notification} ${notificationVisible  ? styles.show : ''}`}>
@@ -134,7 +135,7 @@ export default function Signup() {
                     <div className={styles.bar}></div>
                 </div>
             )}
-            </motion.div>
+            
         </>
     )
 }

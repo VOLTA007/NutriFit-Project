@@ -36,7 +36,7 @@ const UserWelcome = () => {
                     </div>
                 ) : (
                     <>
-                    <div className='sm:mx-96'>
+                    <div className='lg:mx-96'>
                         <div className='flex justify-center items-center'>
                             <nav className="flex px-5 py-3 justify-center items-center text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" aria-label="Breadcrumb" style={{ width: '80px' }}>
                                 <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">

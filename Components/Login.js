@@ -5,6 +5,7 @@ import domain from '@/utils/Config';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -70,6 +71,7 @@ export default function Login() {
 
     return (
         <>
+        <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
             {status === 'authenticated' ? (
                 <div className='flex items-center justify-center h-[50vh]'>
                     <p className={`dark:text-white`}>Logged in--</p>
@@ -124,6 +126,7 @@ export default function Login() {
                     )}
                 </form>
             )}
+            </motion.div>
         </>
     );
 }

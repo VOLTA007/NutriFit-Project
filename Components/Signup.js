@@ -5,6 +5,7 @@ import domain from '@/utils/Config';
 import { useRouter } from 'next/router'; 
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 
 
@@ -83,6 +84,7 @@ export default function Signup() {
 
     return (
         <>
+        <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
             <form onSubmit={handleFormSubmit} className="mx-auto max-w-[400px] w-[350px] h-[400px] bg-[#edfb14] rounded-xl
                  grid grid-rows-4 mt-[140px] m-8 p-5 gap-6">
 
@@ -132,6 +134,7 @@ export default function Signup() {
                     <div className={styles.bar}></div>
                 </div>
             )}
+            </motion.div>
         </>
     )
 }

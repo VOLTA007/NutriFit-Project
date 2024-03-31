@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function MainLayout({ children }) {
   const router = useRouter();
@@ -25,12 +26,13 @@ export default function MainLayout({ children }) {
   if (isMobile === null) {
     return <div></div>; 
 }
+const pathname = usePathname()
 
  
   return (
   <SessionProvider>
     <AnimatePresence mode="wait">
-      <motion.div key={router.pathname}>
+      <motion.div key={pathname}>
         <motion.div
           className="absolute top-0 left-0 w-full h-screen bg-black origin-bottom z-40 rounded-t-[100px]"
           initial={{ scaleY: 0 }}

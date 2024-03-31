@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import SimpleSlider from '@/Components/SimpleSlider';
+import { motion } from 'framer-motion';
+
 
 
 const Home = () => {
@@ -20,6 +22,7 @@ const Home = () => {
 
   return (
     <>
+    <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
       {isLoading ? (
         // Render your loader while isLoading is true
         <div role="status" class="max-w-screen-[1080px] mx-auto p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
@@ -48,6 +51,7 @@ const Home = () => {
       ) : (
         <SimpleSlider />
       )}
+      </motion.div>
     </>
   );
 };

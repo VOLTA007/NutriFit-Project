@@ -8,7 +8,7 @@ const UserWelcome = () => {
         // Set a timeout to change the loading state after 2 seconds
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 3500);
 
         // Clear the timeout if the component unmounts or loading state changes
         return () => clearTimeout(timeoutId);
@@ -36,7 +36,7 @@ const UserWelcome = () => {
                     </div>
                 ) : (
                     <>
-                    <div className='md:mx-96 mx-8'>
+                    
                         <div className='flex justify-center items-center'>
                             <nav className="flex px-5 py-3 justify-center items-center text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" aria-label="Breadcrumb" style={{ width: '80px' }}>
                                 <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -52,13 +52,13 @@ const UserWelcome = () => {
                             </nav>
                         </div>
                         <div style={{ paddingTop: "20px" }}></div>
-                        <div className='flex justify-start items-center gap-6'>
+                        <div className='m-8 sm:flex sm:justify-start sm:items-center justify-center'>
                             <div className="relative w-16 h-16 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                                 <svg className="absolute w-16 h-16 text-gray-400 -left-0 top-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
                             </div>
                             <p className='dark:text-white text-lg'>Welcome, Username 😊</p>
                         </div>
-                    </div>
+                    
                     </>
                 )}
             </motion.div>

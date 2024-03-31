@@ -41,18 +41,19 @@ export default function SimpleSlider() {
     pauseOnHover: false
   };
   return (
-    <div style={{ width: "100%", overflow: "hidden" }}> {/* Ensure the slider doesn't overflow its container */}
-      <Slider {...settings} style={{ width: "100%" }}> {/* Set the width of the slider to 100% */}
-        <div>
-          <img src="./Gym1.jpg" alt="Gym 1" />
-        </div>
-        <div>
-          <img src="./Gym2.jpg" alt="Gym 2" />
-        </div>
-        <div>
-          <img src="./Gym3.jpg" alt="Gym 3" />
-        </div>
-      </Slider>
-    </div>
+    <div style={{ width: "100%", overflow: "hidden", maxHeight: "900px" }}> {/* Set max-height to 200px */}
+    <Slider {...settings} style={{ width: "100%" }}> {/* Set the width of the slider to 100% */}
+      <div>
+        <img src="./Gym1.jpg" alt="Gym 1" />
+      </div>
+      <div>
+        <img src="./Gym2.jpg" alt="Gym 2" />
+      </div>
+      <div>
+        <img src="./Gym3.jpg" alt="Gym 3" />
+      </div>
+    </Slider>
+  </div>
+  
   );
 }

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import SimpleSlider from '@/Components/SimpleSlider';
 import { motion } from 'framer-motion';
+import Userwelcome from '@/Components/Userwelcome';
+
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true); // State to manage loading
@@ -49,6 +51,7 @@ const Home = () => {
       ) : (
         <motion.div className='h-full' initial={{y:"200vh"}} animate={{y:"0%"}} exit={{y:"-200vh"}} transition={{duration:0.5}}>
           <SimpleSlider />
+          <Userwelcome />
         </motion.div>
       )}
     </motion.div>

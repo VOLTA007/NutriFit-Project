@@ -3,7 +3,7 @@ import styles from '@/styles/Login.module.css';
 import axios from 'axios';
 import domain from '@/utils/Config';
 import { useRouter } from 'next/router'; 
-import { signIn, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 

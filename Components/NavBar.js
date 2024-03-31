@@ -72,7 +72,7 @@ export default function NavBar() {
                         {status === 'unauthenticated' && (
                             <>
                         <li className={`${styles.li} bg-[hsl(63,96%,53%)] text-black p-1 rounded-sm ${showOverlay ? '' : styles.hidden}`}>
-                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login <br></br>Sign up
+                        <Link href="/Login" onClick={toggleOverlay} className="flex items-center">Login
                         </Link>
                         </li>
                         </>

@@ -1,12 +1,25 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import Subscription from '@/Components/Subscription';
+import { useSession } from 'next-auth/react';
+
 
 
 const UserWelcome = () => {
+    const session = useSession();
     const [isLoading, setIsLoading] = useState(true);
+    const [username, setUsername] = useState('');
+  
+
 
     useEffect(() => {
+        if (session && session.user) { // Check if session and session.user exist
+            setUsername(session.user.username);
+        } else {
+            setUsername(''); // Reset username if session or session.user doesn't exist
+        }
+
+
         // Set a timeout to change the loading state after 2 seconds
         const timeoutId = setTimeout(() => {
             setIsLoading(false);
@@ -14,7 +27,7 @@ const UserWelcome = () => {
 
         // Clear the timeout if the component unmounts or loading state changes
         return () => clearTimeout(timeoutId);
-    }, []);
+    }, [session]);
 
     return (
         <>
@@ -59,7 +72,7 @@ const UserWelcome = () => {
                                 <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                                     <svg className="absolute w-10 h-10 text-gray-400 -right-0 top-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
                                 </div>
-                                <p className='dark:text-white text-lg'>Welcome,<br></br> Username 😊</p>
+                                <p className='dark:text-white text-lg'>Welcome,<br></br> {username} 😊</p>
                             </div>
 
                             <div>

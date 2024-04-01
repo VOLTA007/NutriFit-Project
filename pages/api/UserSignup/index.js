@@ -1,14 +1,14 @@
 import { createRouter } from "next-connect";
 import dbConnectLogin from "@/utils/dbConnectLogin";
 import UserLogin from "@/models/UserLogin";
-import bcrypt from "bcrypt"
 
 dbConnectLogin();
 
 const router = createRouter()
+
 .post(async (req, res) => {
     try {
-      const { email, password } = req.body;
+      const { username, email, password } = req.body;
   
       // Check if the email already exists in the database
       const existingUser = await UserLogin.findOne({ email });
@@ -26,6 +26,7 @@ const router = createRouter()
   
       // Create a new user object with the email and hashed password
       const newUser = new UserLogin({
+        username,
         email,
         password
       });

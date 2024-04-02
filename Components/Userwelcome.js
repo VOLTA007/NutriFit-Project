@@ -72,7 +72,7 @@ const UserWelcome = () => {
                             </nav>
                         </div>
                         <div style={{ paddingTop: "20px" }}></div>
-                        <div className='grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center place-items-center mx-auto max-w-7xl '>
+                        <div className='grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center place-items-center mx-auto max-w-8xl '>
 
                             <div className='gap-4 flex justify-center items-center sm:justify-start '>
                                 <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">

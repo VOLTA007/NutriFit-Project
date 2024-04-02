@@ -72,16 +72,19 @@ const UserWelcome = () => {
                             </nav>
                         </div>
                         <div style={{ paddingTop: "20px" }}></div>
-                        <div className="flex flex-row justify-between m-8 sm:mx-[200px]">
+                        <div className='grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center place-items-center mx-auto max-w-7xl '>
+
                             <div className='gap-4 flex justify-center items-center sm:justify-start '>
                                 <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                                     <svg className="absolute w-10 h-10 text-gray-400 -right-0 top-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
                                 </div>
-                                <p className='dark:text-white text-lg'>Welcome 😊   <br></br> {username} </p>
+                                <p className='dark:text-white text-lg'>Welcome😊   <br></br> {username} </p>
                             </div>
+
                             <div>
                                 <Subscription />
                             </div>
+
                         </div>
                     </>
                 )}

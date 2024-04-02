@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import Subscription from '@/Components/Subscription';
 import { useSession } from 'next-auth/react';
-import domain from '@/utils/Config';
 import axios from 'axios';
 
 

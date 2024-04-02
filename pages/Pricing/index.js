@@ -24,7 +24,7 @@ const Pricing = () => {
           </div>
           <div style={{paddingTop: "40px"}}></div>
 
-        <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  justify-center place-items-center px-10'>
+          <div className='grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center place-items-center mx-auto max-w-7xl'>
 
           <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
             <span className="mb-4 inline-flex items-center justify-center rounded-md bg-blue-600 p-2 shadow-lg">
@@ -75,7 +75,7 @@ const Pricing = () => {
             quod quibusdam expedita nemo.
           </p>
         </div>
-
+        
       </div>
       </motion.div>
       </>

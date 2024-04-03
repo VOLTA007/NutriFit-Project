@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 
 const Subscription = () => {
   const { data: session, status } = useSession();
-  const [isSubscribed, setIsSubscribed] = useState();
+  const [isSubscribed, setIsSubscribed] = useState(null);
   const isAuthenticated = status === "authenticated"; 
  
 
@@ -42,6 +42,10 @@ const Subscription = () => {
     }
   };
 
+  if (isSubscribed === null) {
+    return <div></div>;
+  }
+
   return (
     <>
       {isAuthenticated && (
@@ -64,7 +68,7 @@ const Subscription = () => {
       
       {!isAuthenticated && (
         <div>
-          {/* Render something when the user is not authenticated */}
+          
         </div>
       )}
     </>

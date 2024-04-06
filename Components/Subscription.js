@@ -5,42 +5,40 @@ import { useSession } from 'next-auth/react';
 
 const Subscription = () => {
   const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
   const [isSubscribed, setIsSubscribed] = useState(null);
-  const isAuthenticated = status === "authenticated"; 
- 
 
   useEffect(() => {
+    const fetchSubs = async () => {
+      try {
+        if (isAuthenticated && session?.user?.email) {
+          const response = await axios.get(`/api/subs?email=${session.user.email}`);
+          const { is_subscribed } = response.data;
+          setIsSubscribed(is_subscribed);
+        }
+      } catch (error) {
+        console.error('Error fetching subs:', error);
+      }
+    };
+
     // Connect to the WebSocket server
-    const socket = io('http://localhost:3001')
-  
+    const socket = io('http://localhost:3001');
+
     // Listen for data updates from the server
     socket.on('dataUpdate', () => {
-      fetchSubs();
+      fetchSubs(); // Call fetchSubs when data updates are received
     });
-  
-    // Fetch initial subscription status (optional)
-    fetchSubs();
-  
+
+    // Fetch initial subscription status on component mount or when isAuthenticated changes
+    if (isAuthenticated) {
+      fetchSubs();
+    }
+
     // Clean up the WebSocket connection
     return () => {
       socket.disconnect();
     };
-  }, []);
-
-
-  const fetchSubs = async () => {
-    if (isAuthenticated) {
-      try {
-        const response = await axios.get(`/api/subs?email=${session.user.email}`);
-        const { is_subscribed } = response.data; // Extract the boolean value
-        setIsSubscribed(is_subscribed); // Set the boolean value to the state
-      } catch (error) {
-        console.error('Error fetching subs:', error);
-      }
-    } else {
-      // Handle the case when the user is not authenticated
-    }
-  };
+  }, [isAuthenticated, session?.user?.email]); // Re-run the effect when isAuthenticated or session.user.email changes
 
   if (isSubscribed === null) {
     return <div></div>;
@@ -68,7 +66,7 @@ const Subscription = () => {
       
       {!isAuthenticated && (
         <div>
-          
+          {/* Content for unauthenticated users */}
         </div>
       )}
     </>

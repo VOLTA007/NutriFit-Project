@@ -23,10 +23,8 @@ app.use(cors());
 
 
 // Connect to MongoDB (replace with your connection string)
-mongoose.connect('mongodb+srv://volta0007:X5913lock1@cluster0.l8jlgt1.mongodb.net/UserLogin', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
+mongoose.connect('mongodb+srv://volta0007:X5913lock1@cluster0.l8jlgt1.mongodb.net/UserLogin')
+.then(() => {
   console.log("Connected to MongoDB");
 }).catch(err => {
   console.error("MongoDB connection error:", err);

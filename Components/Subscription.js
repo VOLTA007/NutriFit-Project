@@ -29,7 +29,7 @@ const Subscription = () => {
 
 
   const fetchSubs = async () => {
-    if (isAuthenticated && session?.user?.email) {
+    if (isAuthenticated) {
       try {
         const response = await axios.get(`/api/subs?email=${session.user.email}`);
         const { is_subscribed } = response.data; // Extract the boolean value

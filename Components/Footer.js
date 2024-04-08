@@ -54,6 +54,7 @@ export default function Footer() {
                         </ul>
                     </div>
                 </footer>
+                <div className='pb-4'></div>
         </motion.div>
     )
 }

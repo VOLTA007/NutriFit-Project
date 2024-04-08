@@ -1,13 +1,12 @@
-import Header from "@/Components/Header";
+import Header from '@/Components/Header'
 
 export default function Home() {
-  return (
-    <>
-    <Header />
-    </>
-  );
+    return (
+        <>
+            <Header />
+        </>
+    )
 }
-
 
 // git add .
 // git commit -m "Commit"

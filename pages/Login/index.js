@@ -1,4 +1,4 @@
-import Login from "@/Components/Login";
+import Login from '@/Components/Login'
 
 export default function LoginPage() {
     return (
@@ -6,5 +6,4 @@ export default function LoginPage() {
             <Login />
         </>
     )
-  }
-
+}

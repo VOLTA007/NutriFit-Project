@@ -45,7 +45,7 @@ const Pricing = () => {
                 <div style={{ paddingTop: '100px' }}></div>
 
                 <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center place-items-center mx-auto max-w-7xl px-10">
-                    <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
+                    <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-10 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
                         <span className="mb-4 inline-flex items-center justify-center rounded-md bg-blue-600 p-2 shadow-lg">
                             <FontAwesomeIcon
                                 icon={faStairs}
@@ -58,12 +58,20 @@ const Pricing = () => {
                         <h3 className="mb-2 font-medium tracking-tight dark:text-white text-black">
                             Beginner 1 Month
                         </h3>
-                        <p className="text-sm text-slate-400">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Impedit ex obcaecati natus eligendi delectus,
-                            cum deleniti sunt in labore nihil quod quibusdam
-                            expedita nemo.
+                        <p className="text-sm text-slate-400 text-balance">
+                            🌟 Beginner (1 Month Plan): Explore foundational
+                            nutrition and fitness concepts to kickstart your
+                            journey towards better health and fitness. Build a
+                            solid understanding of healthy eating and exercise
+                            habits to lay the groundwork for success. Join us
+                            and discover the benefits of a balanced lifestyle!
                         </p>
+                        <button
+                            type="button"
+                            className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        >
+                            Subscribe Now
+                        </button>
                     </div>
 
                     <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
@@ -76,12 +84,19 @@ const Pricing = () => {
                         <h3 className="mb-2 font-medium tracking-tight dark:text-white text-black">
                             Basic 2 Month
                         </h3>
-                        <p className="text-sm text-slate-400">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Impedit ex obcaecati natus eligendi delectus,
-                            cum deleniti sunt in labore nihil quod quibusdam
-                            expedita nemo.
+                        <p className="text-sm text-slate-400 text-balance">
+                            🌟 Basic (2 Month Plan): Dive deeper into nutrition
+                            and exercise with our Basic program. Enhance your
+                            knowledge and skills to accelerate your progress
+                            towards your fitness goals. Experience the benefits
+                            of consistent workouts and smart eating choices!
                         </p>
+                        <button
+                            type="button"
+                            className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        >
+                            Subscribe Now
+                        </button>
                     </div>
 
                     <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
@@ -96,12 +111,20 @@ const Pricing = () => {
                         <h3 className="mb-2 font-medium tracking-tight dark:text-white text-black">
                             Advanced 3 Month
                         </h3>
-                        <p className="text-sm text-slate-400">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Impedit ex obcaecati natus eligendi delectus,
-                            cum deleniti sunt in labore nihil quod quibusdam
-                            expedita nemo.
+                        <p className="text-sm text-slate-400 text-balance">
+                            🌟 Advanced (3 Month Plan): Take your fitness to the
+                            next level with our Advanced program. Master
+                            advanced nutrition strategies and challenging
+                            workouts to sculpt your body and enhance your
+                            performance. Enjoy the benefits of pushing your
+                            limits and achieving peak fitness!
                         </p>
+                        <button
+                            type="button"
+                            className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        >
+                            Subscribe Now
+                        </button>
                     </div>
 
                     <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
@@ -111,12 +134,20 @@ const Pricing = () => {
                         <h3 className="mb-2 font-medium tracking-tight dark:text-white text-black">
                             Premium 6 Month
                         </h3>
-                        <p className="text-sm text-slate-400">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Impedit ex obcaecati natus eligendi delectus,
-                            cum deleniti sunt in labore nihil quod quibusdam
-                            expedita nemo.
+                        <p className="text-sm text-slate-400 text-balance">
+                            🌟 Premium (6 Month Plan): Experience the ultimate
+                            fitness transformation with our Premium program.
+                            Gain access to exclusive benefits including
+                            personalized training, advanced nutrition guidance,
+                            and expert support. Commit to your fitness journey
+                            and reap the rewards of optimal health and wellness!
                         </p>
+                        <button
+                            type="button"
+                            className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        >
+                            Subscribe Now
+                        </button>
                     </div>
                 </div>
             </motion.div>

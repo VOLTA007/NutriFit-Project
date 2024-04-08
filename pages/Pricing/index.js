@@ -7,18 +7,31 @@ import {
     faGear,
 } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
+import { RadioGroup, Radio } from '@nextui-org/react'
+
 
 const Pricing = () => {
-    const [isclicked, setisclicked] = useState(null);
-    const [istrue, setistrue] = useState(false);
+    const [isclicked, setisclicked] = useState(null)
+    const [istrue, setistrue] = useState(false)
+    const [selectedCountry, setSelectedCountry] = useState('')
+    const router = useRouter()
 
-    
+    const handleCountrySelection = (countryCode) => {
+        setSelectedCountry(countryCode)
+    }
 
-
+    const handleContinue = () => {
+        if (selectedCountry === 'EGP') {
+            router.push('/egypt') // Redirect to '/egypt' if Egypt (EGP) is selected
+        } else if (selectedCountry === 'USD') {
+            router.push('/other-country') // Redirect to '/other-country' if Other Country (USD) is selected
+        }
+    }
 
     const handleShowModal = () => {
         setistrue(true)
-        setisclicked('ok') 
+        setisclicked('ok')
     }
 
     return (
@@ -143,7 +156,7 @@ const Pricing = () => {
                     </div>
 
                     <div className="bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-grey-950 relative max-w-md overflow-hidden rounded-xl border border-grey-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
-                        <span className="mb-4 inline-flex items-center justify-center rounded-md bg-red-600 p-2 shadow-lg">
+                        <span className="mb-4 px-2 inline-flex items-center justify-center rounded-md bg-red-600 p-2 shadow-lg">
                             💎
                         </span>
                         <h3 className="mb-2 font-medium tracking-tight dark:text-white text-black">
@@ -186,7 +199,7 @@ const Pricing = () => {
                             {/* Close button */}
                             <button
                                 className="absolute top-4 right-4 text-white cursor-pointer"
-                                onClick={() => setisclicked('wrong')}
+                                onClick={() => setisclicked('wrong')} // Example: Navigate back to home page
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -204,9 +217,35 @@ const Pricing = () => {
                                 </svg>
                             </button>
 
-                            <h1 className="text-white text-center">
-                                Choose Your Country
-                            </h1>
+                            <div className="flex flex-col items-center">
+                                <RadioGroup
+                                    label="Select Your Country"
+                                    value={selectedCountry}
+                                    onChange={(e) =>
+                                        handleCountrySelection(e.target.value)
+                                    }
+                                    className="mb-2"
+                                >
+                                    <div className="pb-3"></div>
+                                    <label style={{ color: 'white' }}>
+                                        <Radio value="EGP" />
+                                        Egypt [EGP]
+                                    </label>
+                                    <div className="pb-3"></div>
+                                    <label style={{ color: 'white' }}>
+                                        <Radio value="USD" />
+                                        Other Country [USD]
+                                    </label>
+                                </RadioGroup>
+                            </div>
+
+                            <button
+                                className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                                onClick={handleContinue}
+                                disabled={!selectedCountry} // Disable button if no country is selected
+                            >
+                                Continue
+                            </button>
                         </div>
                     </motion.div>
                 ) : isclicked === 'wrong' ? (

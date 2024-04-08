@@ -3,6 +3,7 @@ import '@/styles/Flickity.modules.css'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import MainLayout from '@/Components/MainLayout'
+import { NextUIProvider } from '@nextui-org/react'
 
 export default function App({ Component, pageProps }) {
     const router = useRouter()
@@ -15,8 +16,10 @@ export default function App({ Component, pageProps }) {
     }, [])
 
     return (
-        <MainLayout>
-            <Component {...pageProps} />
-        </MainLayout>
+        <NextUIProvider>
+            <MainLayout>
+                <Component {...pageProps} />
+            </MainLayout>
+        </NextUIProvider>
     )
 }

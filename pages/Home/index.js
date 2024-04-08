@@ -79,17 +79,11 @@ const Home = () => {
                     </div>
                 </motion.div>
             ) : (
-                <motion.div
-                    className="h-full"
-                    initial={{ y: '200vh' }}
-                    animate={{ y: '0%' }}
-                    exit={{ y: '-200vh' }}
-                    transition={{ duration: 0.5 }}
-                >
+                <>
                     <SimpleSlider />
-                    <Userwelcome />
-                </motion.div>
+                </>
             )}
+            <Userwelcome />
         </motion.div>
     )
 }

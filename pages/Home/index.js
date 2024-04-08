@@ -24,6 +24,7 @@ const Home = () => {
     })
 
     return (
+        <>
         <motion.div
             className="h-full"
             initial={{ y: '200vh' }}
@@ -61,6 +62,7 @@ const Home = () => {
                         <span className="sr-only"></span>
                     </div>
                 </motion.div>
+                
             ) : (
                 <>
                     <SimpleSlider />
@@ -68,6 +70,7 @@ const Home = () => {
             )}
             
         </motion.div>
+        </>
     )
 }
 

@@ -31,6 +31,8 @@ const Home = () => {
             exit={{ y: '-200vh' }}
             transition={{ duration: 0.5 }}
         >
+            <Userwelcome />
+            <div style={{paddingTop: '80px'}}></div>
             {isLoading ? (
                 // Render your loader while isLoading is true
                 <motion.div
@@ -83,7 +85,6 @@ const Home = () => {
                     <SimpleSlider />
                 </>
             )}
-            <Userwelcome />
         </motion.div>
     )
 }

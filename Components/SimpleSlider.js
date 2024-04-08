@@ -1,62 +1,90 @@
-import React from 'react'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import React, { useRef, useEffect } from 'react'
+import Flickity from 'flickity'
+import imagesLoaded from 'imagesloaded'
+import 'flickity/css/flickity.css'
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: 'none' }}
-            onClick={onClick}
-        />
-    )
-}
+const SimpleSlider = () => {
+    const flickityRef = useRef(null)
+    const imgsRef = useRef([])
 
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: 'none' }}
-            onClick={onClick}
-        />
-    )
-}
+    useEffect(() => {
+        // Initialize Flickity carousel when component mounts
+        const flickity = new Flickity(flickityRef.current, {
+            imagesLoaded: true,
+            percentPosition: false,
+            autoPlay: 1500,
+            pauseAutoPlayOnHover: false,
+            selectedAttraction: 0.01,
+            friction: 0.25,
+            initialIndex: 1,
+            cellAlign: 'center',
+            draggable: true,
+            prevNextButtons: false,
+            lazyLoad: true,
+            setGallerySize: true,
+        })
 
-export default function SimpleSlider() {
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 4000,
-        cssEase: 'ease',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-        pauseOnHover: false,
+        // Ensure images are loaded before initializing Flickity
+        imagesLoaded(flickityRef.current).on('progress', () => {
+            flickity.resize() // Resize Flickity after images are loaded
+        })
+
+        // Store Flickity instance and image elements in refs
+        flickityRef.current.flickityInstance = flickity
+        flickityRef.current.imgElements = imgsRef.current
+
+        // Add scroll event listener for parallax effect
+        flickity.on('scroll', handleParallaxEffect)
+
+        // Clean up Flickity instance when component unmounts
+        return () => {
+            flickity.destroy() // Destroy Flickity instance to avoid memory leaks
+        }
+    }, []) // Run this effect only once on component mount
+
+    // Function to handle parallax effect
+    const handleParallaxEffect = () => {
+        const flickityInstance = flickityRef.current.flickityInstance
+        const imgElements = flickityRef.current.imgElements
+
+        flickityInstance.slides.forEach((slide, i) => {
+            const img = imgElements[i]
+            const x = ((slide.target + flickityInstance.x) * -1) / 3
+            img.style.transform = `translateX(${x}px)`
+        })
     }
+
     return (
-        <div style={{ width: '100%', overflow: 'hidden', maxHeight: '900px' }}>
-            {' '}
-            {/* Set max-height to 200px */}
-            <Slider {...settings} style={{ width: '100%' }}>
-                {' '}
-                {/* Set the width of the slider to 100% */}
-                <div>
-                    <img src="./Gym1.jpg" alt="Gym 1" />
-                </div>
-                <div>
-                    <img src="./Gym2.jpg" alt="Gym 2" />
-                </div>
-                <div>
-                    <img src="./Gym3.jpg" alt="Gym 3" />
-                </div>
-            </Slider>
+        <div className="carousel" ref={flickityRef}>
+            <div className="carousel-cell">
+                <img
+                    className="img"
+                    ref={(el) => imgsRef.current.push(el)}
+                    src="/Gym1.jpg"
+                    data-flickity-lazyload="/Gym1.jpg" // Specify lazy-loaded image source
+                    alt="Slide 1"
+                />
+            </div>
+            <div className="carousel-cell">
+                <img
+                    className="img"
+                    ref={(el) => imgsRef.current.push(el)}
+                    src="/Gym2.jpg"
+                    data-flickity-lazyload="/Gym2.jpg" // Specify lazy-loaded image source
+                    alt="Slide 2"
+                />
+            </div>
+            <div className="carousel-cell">
+                <img
+                    className="img"
+                    ref={(el) => imgsRef.current.push(el)}
+                    src="/Gym3.jpg"
+                    data-flickity-lazyload="/Gym3.jpg" // Specify lazy-loaded image source
+                    alt="Slide 3"
+                />
+            </div>
         </div>
     )
 }
+
+export default SimpleSlider

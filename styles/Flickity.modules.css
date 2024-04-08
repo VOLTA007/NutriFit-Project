@@ -1,0 +1,50 @@
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.carousel {
+  height: 100%;
+}
+
+
+
+.carousel-cell {
+  margin-right: 10px;
+  border-radius: 20px;
+  counter-increment: carousel-cell;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+
+
+.flickity-page-dots {
+  bottom: 10px;
+}
+.img{
+  border-radius: 20px;
+}
+
+
+
+
+
+.img.flickity-lazyloaded,
+.img.flickity-lazyerror {
+  opacity: 1;
+}
+
+@media screen and ( min-width: 768px ) {
+  .img {
+    height: 400px;
+  }
+}

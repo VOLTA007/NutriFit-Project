@@ -10,7 +10,6 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { RadioGroup, Radio } from '@nextui-org/react'
 
-
 const Pricing = () => {
     const [isclicked, setisclicked] = useState(null)
     const [istrue, setistrue] = useState(false)
@@ -22,23 +21,23 @@ const Pricing = () => {
         setSelectedCountry(countryCode)
     }
 
-   const handleContinue = () => {
-       if (selectedCountry && selectedPlan) {
-           const queryParams = {
-               planId: selectedPlan,
-               selectedCountry,
-           }
+    const handleContinue = () => {
+        if (selectedCountry && selectedPlan) {
+            const queryParams = {
+                planId: selectedPlan,
+                selectedCountry,
+            }
 
-           router.push(
-               {
-                   pathname: `/Pricing/${selectedPlan}-${selectedCountry}`,
-                   query: queryParams,
-               },
-               undefined,
-               { shallow: true }
-           )
-       }
-   }
+            router.push(
+                {
+                    pathname: `/Pricing/${selectedPlan}-${selectedCountry}`,
+                    query: queryParams,
+                },
+                undefined,
+                { shallow: true }
+            )
+        }
+    }
 
     const handleShowModal = (planId) => {
         setSelectedPlan(planId)

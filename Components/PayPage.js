@@ -18,8 +18,6 @@ const PayPage = () => {
         secret: configObj.PaymentApiKey,
         baseUrl: configObj.baseUrl,
         metaData: JSON.stringify({
-            'Customer Name': 'Mohamed Khaled',
-            'Cutomer Phone': '+20100XXX',
             'Cutomer Email': 'mkhalid@kashier.io',
         }),
         merchantRedirect: `${domain}/payment-redirect`,

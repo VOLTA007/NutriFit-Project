@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faDollarSign,
@@ -9,13 +9,12 @@ import {
 import { motion } from 'framer-motion'
 
 const Pricing = () => {
-    
-    const [isclicked, setisclicked] = useState(false);
+    const [isclicked, setisclicked] = useState(null)
 
 
-
-
-
+    const handleShowModal = () => {
+        setisclicked('ok') // Set the value to 'ok' when subscribing
+    }
 
     return (
         <>
@@ -77,7 +76,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={() => setisclicked(true)}
+                            onClick={handleShowModal}
                         >
                             Subscribe Now
                         </button>
@@ -103,7 +102,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={() => setisclicked(true)}
+                            onClick={handleShowModal}
                         >
                             Subscribe Now
                         </button>
@@ -132,7 +131,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={() => setisclicked(true)}
+                            onClick={handleShowModal}
                         >
                             Subscribe Now
                         </button>
@@ -156,7 +155,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className="mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={() => setisclicked(true)}
+                            onClick={handleShowModal}
                         >
                             Subscribe Now
                         </button>
@@ -164,7 +163,7 @@ const Pricing = () => {
                 </div>
             </motion.div>
 
-            {isclicked ? (
+            {isclicked === 'ok' ? (
                 <motion.div
                     className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
                     initial={{ y: '200vh' }}
@@ -177,13 +176,79 @@ const Pricing = () => {
                         damping: 20,
                     }}
                 >
-                    <div className="w-[1200px] bg-slate-900 h-[600px] flex flex-col justify-center items-center p-4">
+                    <div className="lg:w-[1200px] w-[330px] bg-slate-900 lg:h-[600px] h-[400px] flex flex-col justify-center items-center p-4 rounded-[30px] relative">
+                        {/* Close button */}
+                        <button
+                            className="absolute top-4 right-4 text-white cursor-pointer"
+                            onClick={() => setisclicked('wrong')}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+
                         <h1 className="text-white text-center">
                             Choose Your Country
                         </h1>
                     </div>
                 </motion.div>
-            ) : null}
+            ) : isclicked === 'wrong' ? (
+                <motion.div
+                    className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
+                    initial={{ y: '200vh' }}
+                    animate={{ y: '100%' }}
+                    exit={{ y: '-200vh' }}
+                    transition={{
+                        duration: 0.5,
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 20,
+                    }}
+                >
+                    <div className="lg:w-[1200px] w-[330px] bg-slate-900 lg:h-[600px] h-[400px] flex flex-col justify-center items-center p-4 rounded-[30px] relative">
+                        {/* Close button */}
+                        <button
+                            className="absolute top-4 right-4 text-white cursor-pointer"
+                            onClick={() => setisclicked('wrong')}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+
+                        {/* Content */}
+                        <h1 className="text-white text-center">
+                            Choose Your Country
+                        </h1>
+                    </div>
+                </motion.div>
+            ) : (
+                // This part will render if isclicked is neither 'ok' nor 'wrong'
+                // You can customize this part as needed
+                <div>{/* Add your fallback content here */}</div>
+            )}
         </>
     )
 }

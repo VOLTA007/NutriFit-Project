@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import SimpleSlider from '@/Components/SimpleSlider'
 import { motion } from 'framer-motion'
 import Userwelcome from '@/Components/Userwelcome'
+import dynamic from 'next/dynamic'
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true) // State to manage loading
@@ -18,6 +18,10 @@ const Home = () => {
         // Clear the timeout if the component unmounts or loading state changes
         return () => clearTimeout(timeoutId)
     }, [])
+
+    const SimpleSlider = dynamic(() => import('@/Components/SimpleSlider'), {
+        loading: () => <div></div>,
+    })
 
     return (
         <motion.div

@@ -4,15 +4,6 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 export default function Footer() {
-    const [isLoading, setisLoading] = useState(true)
-
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setisLoading(false)
-        }, 4000)
-
-        return () => clearTimeout(timeoutId)
-    }, [])
 
     return (
         <motion.div
@@ -63,7 +54,6 @@ export default function Footer() {
                         </ul>
                     </div>
                 </footer>
-                <div className='pb-4'></div>
         </motion.div>
     )
 }

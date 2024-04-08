@@ -168,7 +168,94 @@ const Pricing = () => {
                 </div>
             </motion.div>
 
-            
+            {istrue ? (
+                isclicked === 'ok' ? (
+                    <motion.div
+                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
+                        initial={{ y: '200vh' }}
+                        animate={{ y: '0%' }}
+                        exit={{ y: '-200vh' }}
+                        transition={{
+                            duration: 0.5,
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 20,
+                        }}
+                    >
+                        <div className="lg:w-[1200px] w-[330px] bg-slate-900 lg:h-[600px] h-[400px] flex flex-col justify-center items-center p-4 rounded-[30px] relative">
+                            {/* Close button */}
+                            <button
+                                className="absolute top-4 right-4 text-white cursor-pointer"
+                                onClick={() => setisclicked('wrong')}
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                </svg>
+                            </button>
+
+                            <h1 className="text-white text-center">
+                                Choose Your Country
+                            </h1>
+                        </div>
+                    </motion.div>
+                ) : isclicked === 'wrong' ? (
+                    <motion.div
+                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
+                        initial={{ y: '200vh' }}
+                        animate={{ y: '100%' }}
+                        exit={{ y: '-200vh' }}
+                        transition={{
+                            duration: 0.5,
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 20,
+                        }}
+                    >
+                        <div className="lg:w-[1200px] w-[330px] bg-slate-900 lg:h-[600px] h-[400px] flex flex-col justify-center items-center p-4 rounded-[30px] relative">
+                            {/* Close button */}
+                            <button
+                                className="absolute top-4 right-4 text-white cursor-pointer"
+                                onClick={() => setisclicked('wrong')}
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                </svg>
+                            </button>
+
+                            {/* Content */}
+                            <h1 className="text-white text-center">
+                                Choose Your Country
+                            </h1>
+                        </div>
+                    </motion.div>
+                ) : (
+                    // This part will render if isclicked is neither 'ok' nor 'wrong'
+                    // You can customize this part as needed
+                    <div>{/* Add your fallback content here */}</div>
+                )
+            ) : null}
         </>
     )
 }

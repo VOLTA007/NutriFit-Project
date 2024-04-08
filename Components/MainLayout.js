@@ -11,6 +11,7 @@ import { usePathname } from 'next/navigation'
 export default function MainLayout({ children }) {
     const router = useRouter()
     const [isMobile, setIsMobile] = useState(null)
+    const pathname = usePathname()
 
     useEffect(() => {
         const checkIsMobile = () => {
@@ -27,7 +28,7 @@ export default function MainLayout({ children }) {
     if (isMobile === null) {
         return <div></div>
     }
-    const pathname = usePathname()
+
 
     return (
         <SessionProvider>

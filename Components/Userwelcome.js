@@ -77,7 +77,7 @@ const UserWelcome = () => {
                                             className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             <svg
-                                                class="w-3 h-3 me-2.5"
+                                                className="w-3 h-3 me-2.5"
                                                 aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="currentColor"

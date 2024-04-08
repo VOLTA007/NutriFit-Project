@@ -51,7 +51,7 @@ const Subscription = () => {
             {isAuthenticated && (
                 <>
                     {isSubscribed ? (
-                        <div className="relative left-6 py-8">
+                        <div className="relative left-6">
                             <div className="bg-green-400 rounded-sm p-2">
                                 Subscribed
                             </div>

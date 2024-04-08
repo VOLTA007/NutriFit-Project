@@ -16,20 +16,32 @@ const Pricing = () => {
     const [istrue, setistrue] = useState(false)
     const [selectedCountry, setSelectedCountry] = useState('')
     const router = useRouter()
+    const [selectedPlan, setSelectedPlan] = useState(null)
 
     const handleCountrySelection = (countryCode) => {
         setSelectedCountry(countryCode)
     }
 
-    const handleContinue = () => {
-        if (selectedCountry === 'EGP') {
-            router.push('/egypt') // Redirect to '/egypt' if Egypt (EGP) is selected
-        } else if (selectedCountry === 'USD') {
-            router.push('/other-country') // Redirect to '/other-country' if Other Country (USD) is selected
-        }
-    }
+   const handleContinue = () => {
+       if (selectedCountry && selectedPlan) {
+           const queryParams = {
+               planId: selectedPlan,
+               selectedCountry,
+           }
 
-    const handleShowModal = () => {
+           router.push(
+               {
+                   pathname: `/Pricing/${selectedPlan}-${selectedCountry}`,
+                   query: queryParams,
+               },
+               undefined,
+               { shallow: true }
+           )
+       }
+   }
+
+    const handleShowModal = (planId) => {
+        setSelectedPlan(planId)
         setistrue(true)
         setisclicked('ok')
     }
@@ -94,7 +106,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={handleShowModal}
+                            onClick={() => handleShowModal('beginner')}
                         >
                             Subscribe Now
                         </button>
@@ -120,7 +132,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={handleShowModal}
+                            onClick={() => handleShowModal('basic')}
                         >
                             Subscribe Now
                         </button>
@@ -149,7 +161,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={handleShowModal}
+                            onClick={() => handleShowModal('advanced')}
                         >
                             Subscribe Now
                         </button>
@@ -173,7 +185,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className="mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                            onClick={handleShowModal}
+                            onClick={() => handleShowModal('premium')}
                         >
                             Subscribe Now
                         </button>
@@ -184,7 +196,7 @@ const Pricing = () => {
             {istrue ? (
                 isclicked === 'ok' ? (
                     <motion.div
-                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
+                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-30"
                         initial={{ y: '200vh' }}
                         animate={{ y: '0%' }}
                         exit={{ y: '-200vh' }}
@@ -250,7 +262,7 @@ const Pricing = () => {
                     </motion.div>
                 ) : isclicked === 'wrong' ? (
                     <motion.div
-                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50"
+                        className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-30"
                         initial={{ y: '200vh' }}
                         animate={{ y: '100%' }}
                         exit={{ y: '-200vh' }}

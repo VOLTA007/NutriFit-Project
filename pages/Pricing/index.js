@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faDollarSign,
@@ -9,6 +9,14 @@ import {
 import { motion } from 'framer-motion'
 
 const Pricing = () => {
+    
+    const [isclicked, setisclicked] = useState(false);
+
+
+
+
+
+
     return (
         <>
             <motion.div
@@ -69,6 +77,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                            onClick={() => setisclicked(true)}
                         >
                             Subscribe Now
                         </button>
@@ -94,6 +103,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                            onClick={() => setisclicked(true)}
                         >
                             Subscribe Now
                         </button>
@@ -122,6 +132,7 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                            onClick={() => setisclicked(true)}
                         >
                             Subscribe Now
                         </button>
@@ -145,12 +156,34 @@ const Pricing = () => {
                         <button
                             type="button"
                             className=" mt-8 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                            onClick={() => setisclicked(true)}
                         >
                             Subscribe Now
                         </button>
                     </div>
                 </div>
             </motion.div>
+
+            {isclicked ? (
+                <motion.div
+                    className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50"
+                    initial={{ y: '200vh' }}
+                    animate={{ y: '0%' }}
+                    exit={{ y: '-200vh' }}
+                    transition={{
+                        duration: 0.5,
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 20,
+                    }}
+                >
+                    <div className="w-[1200px] bg-slate-900 h-[600px] flex flex-col justify-center items-center p-4">
+                        <h1 className="text-white text-center">
+                            Choose Your Country
+                        </h1>
+                    </div>
+                </motion.div>
+            ) : null}
         </>
     )
 }

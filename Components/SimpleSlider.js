@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import Flickity from 'flickity'
-import imagesLoaded from 'imagesloaded'
 import 'flickity/css/flickity.css'
 import { Image } from '@nextui-org/react'
 
@@ -8,12 +7,11 @@ const SimpleSlider = () => {
     const flickityRef = useRef(null)
     const imgsRef = useRef([])
 
-
-    if (process.env.NODE_ENV === 'production') {
-        domain = 'https://nutrifit-neon.vercel.app/'
-    } else {
-        domain = 'http://localhost:3000/'
-    }
+    // Declare domain variable based on environment
+    const domain =
+        process.env.NODE_ENV === 'production'
+            ? 'https://nutrifit-neon.vercel.app/'
+            : 'http://localhost:3000/'
 
     useEffect(() => {
         let flickityInstance = null
@@ -39,10 +37,13 @@ const SimpleSlider = () => {
         }
 
         const handleParallaxEffect = () => {
-            const slides = flickityInstance.slides
-            slides.forEach((slide, index) => {
+            if (!flickityInstance) return
+
+            flickityInstance.slides.forEach((slide, index) => {
                 const imgElement = imgsRef.current[index]
-                const x = (slide.target + flickityInstance.x) * -1 * 0.3 // Adjust the parallax effect factor here (0.3 in this example)
+                if (!imgElement) return
+
+                const x = (slide.target + flickityInstance.x) * -1 * 0.3 // Adjust the parallax effect factor here
                 imgElement.style.transform = `translateX(${x}px)`
             })
         }
@@ -65,7 +66,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[0] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}/gym1.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}gym1.jpg`}
                     alt="Gym 1"
                 />
             </div>
@@ -75,7 +76,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[1] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}/gym2.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}gym2.jpg`}
                     alt="Gym 2"
                 />
             </div>
@@ -85,7 +86,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[2] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}/gym3.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}gym3.jpg`}
                     alt="Gym 3"
                 />
             </div>

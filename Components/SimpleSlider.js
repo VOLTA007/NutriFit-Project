@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import Flickity from 'flickity'
+import 'flickity/css/flickity.css'
 import { Image } from '@nextui-org/react'
 
 const SimpleSlider = () => {
@@ -12,6 +13,7 @@ const SimpleSlider = () => {
             ? 'https://nutrifit-neon.vercel.app/'
             : 'http://localhost:3000/'
 
+            console.log(domain)
 
     useEffect(() => {
         let flickityInstance = null
@@ -65,6 +67,8 @@ const SimpleSlider = () => {
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
                 <Image
+                    width={300}
+                    height={200}
                     className="img"
                     ref={(el) => (imgsRef.current[0] = el)}
                     src={`https://app.requestly.io/delay/2000/${domain}gyman.jpg`}
@@ -73,6 +77,8 @@ const SimpleSlider = () => {
             </div>
             <div className="carousel-cell">
                 <Image
+                    width={300}
+                    height={200}
                     className="img"
                     ref={(el) => (imgsRef.current[1] = el)}
                     src={`https://app.requestly.io/delay/2000/${domain}gyma.jpg`}
@@ -81,6 +87,8 @@ const SimpleSlider = () => {
             </div>
             <div className="carousel-cell">
                 <Image
+                    width={300}
+                    height={200}
                     className="img"
                     ref={(el) => (imgsRef.current[2] = el)}
                     src={`https://app.requestly.io/delay/2000/${domain}gymaa.jpg`}

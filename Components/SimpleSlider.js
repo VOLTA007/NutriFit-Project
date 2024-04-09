@@ -13,6 +13,8 @@ const SimpleSlider = () => {
             ? 'https://nutrifit-neon.vercel.app/'
             : 'http://localhost:3000/'
 
+            console.log(domain)
+
     useEffect(() => {
         let flickityInstance = null
 

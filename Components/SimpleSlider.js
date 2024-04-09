@@ -81,7 +81,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[1] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}gym2.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}gyma.jpg`}
                     alt="Gym 2"
                 />
             </div>
@@ -91,7 +91,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[2] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}gym3.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}gymaa.jpg`}
                     alt="Gym 3"
                 />
             </div>

@@ -45,7 +45,7 @@ const SimpleSlider = () => {
                 const imgElement = imgsRef.current[index]
                 if (!imgElement) return
 
-                const x = (slide.target + flickityInstance.x) * -1 * 0.3 // Adjust the parallax effect factor here
+                const x = (slide.target + flickityInstance.x) * -1 * 0.01 // Adjust the parallax effect factor here
                 imgElement.style.transform = `translateX(${x}px)`
             })
         }

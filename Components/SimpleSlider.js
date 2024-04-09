@@ -59,6 +59,16 @@ const SimpleSlider = () => {
         }
     }, [])
 
+
+    useEffect(() => {
+        // Log the image URLs for debugging
+        console.log('Image URLs:', [
+            `${domain}gym1.jpg`,
+            `${domain}gym2.jpg`,
+            `${domain}gym3.jpg`,
+        ])
+    }, [domain])
+
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">

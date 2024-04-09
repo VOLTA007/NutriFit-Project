@@ -31,7 +31,6 @@ const SimpleSlider = () => {
                 draggable: true,
                 prevNextButtons: false,
                 setGallerySize: true,
-                wrapAround: true,
             })
 
             flickityRef.current.flickityInstance = flickityInstance

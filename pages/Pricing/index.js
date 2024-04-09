@@ -14,8 +14,9 @@ const Pricing = () => {
     const [isclicked, setisclicked] = useState(null)
     const [istrue, setistrue] = useState(false)
     const [selectedCountry, setSelectedCountry] = useState('')
-    const router = useRouter()
     const [selectedPlan, setSelectedPlan] = useState(null)
+    const router = useRouter()
+
 
     const handleCountrySelection = (countryCode) => {
         setSelectedCountry(countryCode)

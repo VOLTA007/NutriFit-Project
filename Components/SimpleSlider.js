@@ -9,78 +9,77 @@ const SimpleSlider = () => {
     const imgsRef = useRef([])
 
     useEffect(() => {
-        // Initialize Flickity carousel when component mounts
-        const flickity = new Flickity(flickityRef.current, {
-            imagesLoaded: true,
-            percentPosition: false,
-            autoPlay: 2000,
-            pauseAutoPlayOnHover: false,
-            selectedAttraction: 0.01,
-            friction: 0.25,
-            initialIndex: 1,
-            cellAlign: 'center',
-            draggable: true,
-            prevNextButtons: false,
-            setGallerySize: true,
-        })
+        let flickityInstance = null
 
-        // Ensure images are loaded before initializing Flickity
-        imagesLoaded(flickityRef.current).on('progress', () => {
-            flickity.resize() // Resize Flickity after images are loaded
-        })
+        const initializeFlickity = () => {
+            flickityInstance = new Flickity(flickityRef.current, {
+                imagesLoaded: true,
+                percentPosition: false,
+                autoPlay: 2000,
+                pauseAutoPlayOnHover: false,
+                selectedAttraction: 0.01,
+                friction: 0.25,
+                initialIndex: 1,
+                cellAlign: 'center',
+                draggable: true,
+                prevNextButtons: false,
+                setGallerySize: true,
+            })
 
-        // Store Flickity instance and image elements in refs
-        flickityRef.current.flickityInstance = flickity
-        flickityRef.current.imgElements = imgsRef.current
+            flickityRef.current.flickityInstance = flickityInstance
 
-        // Add scroll event listener for parallax effect
-        flickity.on('scroll', handleParallaxEffect)
-
-        // Clean up Flickity instance when component unmounts
-        return () => {
-            flickity.destroy() // Destroy Flickity instance to avoid memory leaks
+            flickityInstance.on('scroll', handleParallaxEffect)
         }
-    }, []) // Run this effect only once on component mount
 
-    // Function to handle parallax effect
-    const handleParallaxEffect = () => {
-        const flickityInstance = flickityRef.current.flickityInstance
-        const imgElements = flickityRef.current.imgElements
+        const handleParallaxEffect = () => {
+            const slides = flickityInstance.slides
+            slides.forEach((slide, index) => {
+                const imgElement = imgsRef.current[index]
+                const x = (slide.target + flickityInstance.x) * -1 * 0.3 // Adjust the parallax effect factor here (0.3 in this example)
+                imgElement.style.transform = `translateX(${x}px)`
+            })
+        }
 
-        flickityInstance.slides.forEach((slide, i) => {
-            const img = imgElements[i]
-            const x = ((slide.target + flickityInstance.x) * -1) / 3
-            img.style.transform = `translateX(${x}px)`
-        })
-    }
+        initializeFlickity()
+
+        // Cleanup function
+        return () => {
+            if (flickityInstance) {
+                flickityInstance.destroy()
+            }
+        }
+    }, [])
 
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
-                    ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym1.jpg"
+                    ref={(el) => (imgsRef.current[0] = el)}
+                    width={300}
+                    height={200}
+                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym1.jpg`}
                     alt="Gym 1"
-                    delay={5000}
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
-                    ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym2.jpg"
+                    ref={(el) => (imgsRef.current[1] = el)}
+                    width={300}
+                    height={200}
+                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym2.jpg`}
                     alt="Gym 2"
-                    delay={5000}
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
-                    ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym3.jpg"
+                    ref={(el) => (imgsRef.current[2] = el)}
+                    width={300}
+                    height={200}
+                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym3.jpg`}
                     alt="Gym 3"
-                    delay={5000}
                 />
             </div>
         </div>

@@ -22,7 +22,7 @@ const SimpleSlider = () => {
             flickityInstance = new Flickity(flickityRef.current, {
                 imagesLoaded: true,
                 percentPosition: false,
-                autoPlay: 2000,
+                autoPlay: 3000,
                 pauseAutoPlayOnHover: false,
                 selectedAttraction: 0.01,
                 friction: 0.25,

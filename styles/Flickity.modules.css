@@ -25,12 +25,6 @@
 
 
 
-
-.img.flickity-lazyloaded,
-.img.flickity-lazyerror {
-  opacity: 1;
-}
-
 @media screen and ( min-width: 768px ) {
   .img {
     height: 400px;

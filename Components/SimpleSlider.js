@@ -21,7 +21,6 @@ const SimpleSlider = () => {
             cellAlign: 'center',
             draggable: true,
             prevNextButtons: false,
-            lazyLoad: true,
             setGallerySize: true,
         })
 
@@ -58,36 +57,30 @@ const SimpleSlider = () => {
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
-                <Image
-                    width={300}
-                    height={200}
-                    alt="NextUI hero Image with delay"
+                <img
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="https://app.requestly.io/delay/5000/Gym1.jpg"
-                    data-flickity-lazyload="/Gym1.jpg" // Specify lazy-loaded image source
+                    src="/Gym1.jpg"
+                    alt="Gym 1"
+                    delay={5000}
                 />
             </div>
             <div className="carousel-cell">
-                <Image
-                    width={300}
-                    height={200}
-                    alt="NextUI hero Image with delay"
+                <img
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="https://app.requestly.io/delay/5000/Gym2.jpg"
-                    data-flickity-lazyload="/Gym2.jpg" // Specify lazy-loaded image source
+                    src="/Gym2.jpg"
+                    alt="Gym 2"
+                    delay={5000}
                 />
             </div>
             <div className="carousel-cell">
-                <Image
-                    width={300}
-                    height={200}
-                    alt="NextUI hero Image with delay"
+                <img
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="https://app.requestly.io/delay/5000/Gym3.jpg"
-                    data-flickity-lazyload="/Gym3.jpg" // Specify lazy-loaded image source
+                    src="/Gym3.jpg"
+                    alt="Gym 3"
+                    delay={5000}
                 />
             </div>
         </div>

@@ -1,5 +1,4 @@
 import styles from '@/styles/globals.css'
-import '@/styles/Flickity.modules.css'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import MainLayout from '@/Components/MainLayout'

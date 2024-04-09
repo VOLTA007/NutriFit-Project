@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import Flickity from 'flickity'
-import 'flickity/css/flickity.css'
 import { Image } from '@nextui-org/react'
 
 const SimpleSlider = () => {
@@ -13,7 +12,6 @@ const SimpleSlider = () => {
             ? 'https://nutrifit-neon.vercel.app/'
             : 'http://localhost:3000/'
 
-            console.log(domain)
 
     useEffect(() => {
         let flickityInstance = null
@@ -32,7 +30,6 @@ const SimpleSlider = () => {
                 prevNextButtons: false,
                 setGallerySize: true,
                 wrapAround: true,
-                adaptiveHeight: false,
             })
 
             flickityRef.current.flickityInstance = flickityInstance

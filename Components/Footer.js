@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
-import styles from '../styles/Footer.module.css'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 export default function Footer() {
 

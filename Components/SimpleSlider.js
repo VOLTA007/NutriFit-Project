@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import Flickity from 'flickity'
 import imagesLoaded from 'imagesloaded'
 import 'flickity/css/flickity.css'
+import { Image } from '@nextui-org/react'
 
 const SimpleSlider = () => {
     const flickityRef = useRef(null)
@@ -57,30 +58,36 @@ const SimpleSlider = () => {
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
-                <img
+                <Image
+                    width={300}
+                    height={200}
+                    alt="NextUI hero Image with delay"
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym1.jpg"
+                    src="https://app.requestly.io/delay/5000/Gym1.jpg"
                     data-flickity-lazyload="/Gym1.jpg" // Specify lazy-loaded image source
-                    alt="Slide 1"
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
+                    width={300}
+                    height={200}
+                    alt="NextUI hero Image with delay"
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym2.jpg"
+                    src="https://app.requestly.io/delay/5000/Gym2.jpg"
                     data-flickity-lazyload="/Gym2.jpg" // Specify lazy-loaded image source
-                    alt="Slide 2"
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
+                    width={300}
+                    height={200}
+                    alt="NextUI hero Image with delay"
                     className="img"
                     ref={(el) => imgsRef.current.push(el)}
-                    src="/Gym3.jpg"
+                    src="https://app.requestly.io/delay/5000/Gym3.jpg"
                     data-flickity-lazyload="/Gym3.jpg" // Specify lazy-loaded image source
-                    alt="Slide 3"
                 />
             </div>
         </div>

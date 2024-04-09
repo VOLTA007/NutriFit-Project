@@ -15,7 +15,6 @@ body{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
-    position: relative;
     min-height: 100vh;
 }
 /* Define a custom scrollbar */

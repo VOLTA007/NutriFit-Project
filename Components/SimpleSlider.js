@@ -8,6 +8,13 @@ const SimpleSlider = () => {
     const flickityRef = useRef(null)
     const imgsRef = useRef([])
 
+
+    if (process.env.NODE_ENV === 'production') {
+        domain = 'https://nutrifit-neon.vercel.app/'
+    } else {
+        domain = 'http://localhost:3000/'
+    }
+
     useEffect(() => {
         let flickityInstance = null
 
@@ -58,7 +65,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[0] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym1.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}/gym1.jpg`}
                     alt="Gym 1"
                 />
             </div>
@@ -68,7 +75,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[1] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym2.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}/gym2.jpg`}
                     alt="Gym 2"
                 />
             </div>
@@ -78,7 +85,7 @@ const SimpleSlider = () => {
                     ref={(el) => (imgsRef.current[2] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/http://localhost:3000/gym3.jpg`}
+                    src={`https://app.requestly.io/delay/2000/${domain}/gym3.jpg`}
                     alt="Gym 3"
                 />
             </div>

@@ -72,32 +72,32 @@ const SimpleSlider = () => {
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
-                <Image
+                <img
                     className="img"
                     ref={(el) => (imgsRef.current[0] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}gym1.jpg`}
+                    src="/gym1.jpg"
                     alt="Gym 1"
                 />
             </div>
             <div className="carousel-cell">
-                <Image
+                <img
                     className="img"
                     ref={(el) => (imgsRef.current[1] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}gym2.jpg`}
+                    src="/gym2.jpg"
                     alt="Gym 2"
                 />
             </div>
             <div className="carousel-cell">
-                <Image
+                <img
                     className="img"
                     ref={(el) => (imgsRef.current[2] = el)}
                     width={300}
                     height={200}
-                    src={`https://app.requestly.io/delay/2000/${domain}gym3.jpg`}
+                    src="/gym3.jpg"
                     alt="Gym 3"
                 />
             </div>

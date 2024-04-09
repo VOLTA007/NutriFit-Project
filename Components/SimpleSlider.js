@@ -72,7 +72,7 @@ const SimpleSlider = () => {
     return (
         <div className="carousel" ref={flickityRef}>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
                     ref={(el) => (imgsRef.current[0] = el)}
                     width={300}
@@ -82,7 +82,7 @@ const SimpleSlider = () => {
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
                     ref={(el) => (imgsRef.current[1] = el)}
                     width={300}
@@ -92,7 +92,7 @@ const SimpleSlider = () => {
                 />
             </div>
             <div className="carousel-cell">
-                <img
+                <Image
                     className="img"
                     ref={(el) => (imgsRef.current[2] = el)}
                     width={300}

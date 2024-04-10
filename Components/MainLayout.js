@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { NextUIProvider } from '@nextui-org/react'
 import NavBar2 from './NavBar2'
 import Innernav from './Innernav'
+import { usePathname } from 'next/navigation'
 
 
 
@@ -58,14 +59,14 @@ export default function MainLayout({ children }) {
         return <div></div>
     }
 
-    const pathname = router.pathname
+    const pathname = usePathname()
     return (
         <NextUIProvider>
             <SessionProvider>
                 <AnimatePresence mode="wait">
                     <motion.div key={pathname}>
                         <motion.div
-                            className="absolute top-0 left-0 w-full h-full bg-black origin-bottom z-40 rounded-t-[100px]"
+                            className="absolute top-0 left-0 w-full h-screen bg-black origin-bottom z-40 rounded-t-[100px]"
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 0 }}
                             exit={{ scaleY: 1.5 }}
@@ -75,7 +76,7 @@ export default function MainLayout({ children }) {
                             }}
                         />
                         <motion.div
-                            className="absolute top-0 left-0 w-full h-full bg-black origin-top z-40 rounded-b-[100px]"
+                            className="absolute top-0 left-0 w-full h-screen bg-black origin-top z-40 rounded-b-[100px]"
                             initial={{ scaleY: 1.5 }}
                             animate={{ scaleY: 0 }}
                             exit={{ scaleY: 0 }}

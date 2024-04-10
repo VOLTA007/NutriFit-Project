@@ -30,7 +30,6 @@ const SimpleSlider = () => {
                 cellAlign: 'center',
                 draggable: true,
                 prevNextButtons: false,
-                setGallerySize: true,
             })
 
             flickityRef.current.flickityInstance = flickityInstance

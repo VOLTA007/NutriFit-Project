@@ -65,7 +65,7 @@ export default function MainLayout({ children }) {
         <NextUIProvider>
             <SessionProvider>
                 <AnimatePresence mode="wait">
-                    <motion.div key={pathname}>
+                    <motion.div key={router}>
                         <motion.div
                             className="absolute top-0 left-0 w-full h-screen bg-black origin-bottom z-40 rounded-t-[100px]"
                             initial={{ scaleY: 0 }}

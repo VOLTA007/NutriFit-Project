@@ -64,8 +64,26 @@ export default function MainLayout({ children }) {
             <SessionProvider>
                 <AnimatePresence mode="wait">
                     <motion.div key={pathname}>
-                        
-                        
+                        <motion.div
+                            className="absolute top-0 left-0 w-full h-full bg-black origin-bottom z-40 rounded-t-[100px]"
+                            initial={{ scaleY: 0 }}
+                            animate={{ scaleY: 0 }}
+                            exit={{ scaleY: 1.5 }}
+                            transition={{
+                                duration: 1,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                        />
+                        <motion.div
+                            className="absolute top-0 left-0 w-full h-full bg-black origin-top z-40 rounded-b-[100px]"
+                            initial={{ scaleY: 1.5 }}
+                            animate={{ scaleY: 0 }}
+                            exit={{ scaleY: 0 }}
+                            transition={{
+                                duration: 1,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                        />
                         <Header />
                         {isMobile ? <div></div> : <NavBarDesktop />}
                         <div className="absolute right-0 z-10">

@@ -12,33 +12,7 @@
 
 html,body{
     font-family: "Inter", sans-serif;
-    width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
     scroll-behavior: smooth;
-}
-/* Define a custom scrollbar */
-body::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
-}
-html {
-  scroll-behavior: smooth;
-}
-
-/* Track */
-body::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scrollbar track */
-}
-
-/* Handle */
-body::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar handle */
-  border-radius: 5px; /* Rounded corners */
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar handle on hover */
 }

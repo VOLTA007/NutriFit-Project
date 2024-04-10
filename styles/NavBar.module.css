@@ -64,8 +64,8 @@
 }
 
 .sidemenu {
-    position: fixed;
-    top: 32px;
+    position: relative;
+    top: 0px;
     right: 0;
     width: 0;
     margin-right: -10px;
@@ -80,13 +80,13 @@
 
 
 .overlay {
-    position: static;
-    top: 32px;
+    position: fixed;
+    top: -32px;
     left: 0;
     width: 100%;
-    height: calc(100% - 32px);
+    height: calc(100% + 32px);
     background-color: rgba(0, 0, 0, 0);
-    z-index: 0;
+    z-index: 1;
     visibility: hidden;
     transition: all 0.8s ease;
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaMoon } from 'react-icons/fa'
 import { BsSunFill } from 'react-icons/bs'
-import styles from '@/styles/Toggler.module.css'
 
 const Toggler = () => {
     const [darkMode, setdarkMode] = useState()

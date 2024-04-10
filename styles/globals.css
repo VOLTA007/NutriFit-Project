@@ -10,12 +10,14 @@
   }
 
 
-body{
+html,body{
     font-family: "Inter", sans-serif;
-    padding: 0;
-    margin: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    min-height: 100vh;
 }
 /* Define a custom scrollbar */
 body::-webkit-scrollbar {
